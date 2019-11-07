@@ -6,3 +6,7 @@ resource "azurerm_resource_group" "arg-01" {
     Environment = "Test"
   }
 }
+
+output "ResourceGroup" {
+  value = "${azurerm_resource_group.arg-01.id}"
+}
