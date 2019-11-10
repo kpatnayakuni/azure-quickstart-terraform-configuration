@@ -1,5 +1,6 @@
-ResourceGroup/terraform.tfvars
-ResourceGroup/rg.plan
-ResourceGroup/terraform.tfstate
-ResourceGroup/.terraform/plugins/linux_amd64/lock.json
-ResourceGroup/.terraform/plugins/linux_amd64/terraform-provider-azurerm_v1.36.1_x4
+.terraform
+*.*plan
+*.tfstate
+*.tfstate.backup
+*.exe
+
