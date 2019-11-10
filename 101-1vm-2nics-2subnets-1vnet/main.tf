@@ -10,6 +10,7 @@ locals {
   networkSecurityGroupName = "NSG"
   networkSecurityRule = ["default-allow-rdp"]
   storageAccountName = lower(join("", ["diag", "${random_string.asaname-01.result}"]))
+  osDiskName = join("",["${local.virtualMachineName}", "_OsDisk_1_", lower("${random_string.avmosd-01.result}")])
 }
 
 resource "azurerm_resource_group" "arg-01" {
@@ -94,6 +95,11 @@ resource "random_string" "asaname-01" {
   special = "false"
 }
 
+resource "random_string" "avmosd-01" {
+  length = 32
+  special = "false"
+}
+
 resource "azurerm_storage_account" "asa-01" {
   name = "${local.storageAccountName}"
   resource_group_name = "${azurerm_resource_group.arg-01.name}"
@@ -108,6 +114,7 @@ resource "azurerm_virtual_machine" "avm-01" {
   location = "${azurerm_resource_group.arg-01.location}"
   vm_size = "${var.virtual_machine_size}"
   network_interface_ids = ["${azurerm_network_interface.ani-01.id}", "${azurerm_network_interface.ani-02.id}" ]
+  primary_network_interface_id = "${azurerm_network_interface.ani-01.id}"
   os_profile {
     computer_name = "${local.virtualMachineName}"
     admin_username = "${var.admin_username}"
@@ -124,7 +131,7 @@ resource "azurerm_virtual_machine" "avm-01" {
     version = "latest"
   }
   storage_os_disk {
-    name = "${local.virtualMachineName}-OSDisk"
+    name = "${local.osDiskName}"    
     create_option = "FromImage"
   }
   boot_diagnostics {
@@ -132,11 +139,6 @@ resource "azurerm_virtual_machine" "avm-01" {
     enabled = "true"
   }
 }
-
-output "randomString" {
-  value = "${random_string.asaname-01.result}"
-}
-
 
 
 
