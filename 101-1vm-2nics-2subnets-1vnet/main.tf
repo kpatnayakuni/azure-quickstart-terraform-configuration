@@ -9,6 +9,7 @@ locals {
   publicIPAddressName = "publicIp"
   networkSecurityGroupName = "NSG"
   networkSecurityRule = ["default-allow-rdp"]
+  storageAccountName = lower(join("", ["diag", "${random_string.asaname-01.result}"]))
 }
 
 resource "azurerm_resource_group" "arg-01" {
@@ -90,16 +91,51 @@ resource "azurerm_network_interface" "ani-02" {
 
 resource "random_string" "asaname-01" {
   length = 16
+  special = "false"
 }
 
 resource "azurerm_storage_account" "asa-01" {
-  name = "diag${random_string.asaname-01.result}"
+  name = "${local.storageAccountName}"
   resource_group_name = "${azurerm_resource_group.arg-01.name}"
   location = "${azurerm_resource_group.arg-01.location}"
   account_replication_type = "LRS"
   account_tier = "${var.storage_account_type}"
 }
 
+resource "azurerm_virtual_machine" "avm-01" {
+  name = "${local.virtualMachineName}"
+  resource_group_name = "${azurerm_resource_group.arg-01.name}"
+  location = "${azurerm_resource_group.arg-01.location}"
+  vm_size = "${var.virtual_machine_size}"
+  network_interface_ids = ["${azurerm_network_interface.ani-01.id}", "${azurerm_network_interface.ani-02.id}" ]
+  os_profile {
+    computer_name = "${local.virtualMachineName}"
+    admin_username = "${var.admin_username}"
+    admin_password = "${var.admin_password}"
+    
+  }
+  os_profile_windows_config {
+    provision_vm_agent = "true"
+  }
+  storage_image_reference {
+    publisher = "MicrosoftWindowsServer"
+    offer = "WindowsServer"
+    sku = "2016-Datacenter"
+    version = "latest"
+  }
+  storage_os_disk {
+    name = "${local.virtualMachineName}-OSDisk"
+    create_option = "FromImage"
+  }
+  boot_diagnostics {
+    storage_uri = "${azurerm_storage_account.asa-01.primary_blob_endpoint}"
+    enabled = "true"
+  }
+}
+
+output "randomString" {
+  value = "${random_string.asaname-01.result}"
+}
 
 
 

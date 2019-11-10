@@ -33,16 +33,15 @@ variable "virtual_machine_size" {
     description = "Virtual machine size (has to be at least the size of Standard_A3 to support 2 NICs)"
 }
 
-#variable "admin_username" {
-#    type = "string"
-#    default = "${var.admin_username}"
-#    description= "Default Admin username"
-#}
+variable "admin_username" {
+    type = "string"
+    description= "Default Admin username"
+}
 
-#variable "admin_password" {
-#    type = "string"
-#    description = "Default Admin password"
-#}
+variable "admin_password" {
+    type = "string"
+    description = "Default Admin password"
+}
 
 variable "storage_account_type" {
     type = "string"
