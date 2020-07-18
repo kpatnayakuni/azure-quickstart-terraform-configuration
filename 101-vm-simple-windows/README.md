@@ -57,4 +57,4 @@ hostname = demodns2020.westus.cloudapp.azure.com
 
 >Azure Cloud Shelll comes with terraform pre-installed and you deploy this configuration in Cloud Shell as well.
 >
->[![cloudshell](cloudshell.png)](https://shell.azure.com)
+>[![cloudshell](images/cloudshell.png)](https://shell.azure.com)
