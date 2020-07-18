@@ -1,12 +1,8 @@
-Cloud Shelll has in-built terraform libraries, deploy these configurations on Cloud Shell
-
-[![cloudshell](cloudshell.png)](https://shell.azure.com)
-
 # Terraform:101-vm-simple-windows
 
 ## Very simple deployment of a Windows VM
 ### Description 
- This is a conversion of ARM template *[101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*  to Terraform Script, and this script will deploy following the resources…
+This is a conversion of ARM template *[101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*  to Terraform configuration, and this configuration will deploy following the resources…
  
 ![result](https://github.com/AnushaAD/Terraform/blob/master/101-vm-simple-windows/result.PNG)
 
@@ -15,26 +11,32 @@ Cloud Shelll has in-built terraform libraries, deploy these configurations on Cl
 group to state before deployment.
 
 ### Syntax
-  ```
-   terraform init 
-   terraform plan
-   terraform apply
- ```  
+```
+# To initialize the configuration directory
+PS C:\> terraform init 
 
- ### Example
- ```
- PS C:\Terraform\Terraform> terraform init 
- PS C:\Terraform\Terraform> terraform plan
+# To check the execution plan
+PS C:\> terraform plan
 
-  var.adminPassword
-  Password for the Virtual Machine.
-  Enter a value: *********
+# To deploy the configuration
+PS C:\> terraform apply
+```  
 
- PS C:\Terraform\Terraform> terraform apply 
+### Example
+```
+PS C:\> terraform init 
+PS C:\> terraform plan
 
-  var.adminPassword
-  Password for the Virtual Machine.
-  Enter a value: *********
+var.adminPassword
+Password for the Virtual Machine.
+Enter a value: *********
+
+<--- output truncated --->
+PS C:\> terraform apply 
+
+var.adminPassword
+Password for the Virtual Machine.
+Enter a value: *********
 ````
 
 ### Output
@@ -44,9 +46,14 @@ azurerm_virtual_machine.avm-01: Creating...
 azurerm_virtual_machine.avm-01: Still creating... [10s elapsed]
 azurerm_virtual_machine.avm-01: Creation complete after 2m2s 
 
+<--- output truncated --->
+
 Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
 
 Outputs:
 
 hostname = demodns2020.westus.cloudapp.azure.com
 ```
+
+>Azure Cloud Shelll comes with terraform pre-installed and you deploy this configuration in Cloud Shell as well.
+>[![cloudshell](cloudshell.png)](https://shell.azure.com)
