@@ -1,3 +1,4 @@
+# Authentication
 provider "azurerm" {
     features {}
      subscription_id = var.tf_var_arm_subscription_id
@@ -5,9 +6,8 @@ provider "azurerm" {
      client_secret = var.tf_var_arm_client_secret
      tenant_id = var.tf_var_arm_tenant_id
 }
-#TF_VAR_ARM_SUBSCRIPTION_ID
-#arm_client_id
 
+# Variable declaration
 variable "tf_var_arm_subscription_id" {
     description = "enter subscription id"
 }
@@ -38,6 +38,7 @@ variable "virtual_machine_size" {
 
 variable "admin_username" {
     type = string
+    default = demo_user
     description= "Default Admin username"
 }
 
