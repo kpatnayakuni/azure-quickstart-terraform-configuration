@@ -157,3 +157,9 @@ resource "azurerm_virtual_machine" "avm-01" {
     enabled = "true"
   }
 }
+
+## Output
+# Host FQDN
+output "hostname" {
+    value   = azurerm_public_ip.apip-01.fqdn
+}

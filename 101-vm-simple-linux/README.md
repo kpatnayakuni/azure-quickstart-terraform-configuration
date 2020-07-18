@@ -1,6 +1,5 @@
 
-# 101-vm-simple-linux
-
+# Terraform: 101-vm-simple-linux
 ## Very simple deployment of a Linux VM 
 ## Description
 This is a conversion of ARM template *[101-vm-simple-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources...
@@ -8,8 +7,7 @@ This is a conversion of ARM template *[101-vm-simple-linux](https://github.com/A
 ![output](images/simplelinux.png)
 
 > ### Note:
-> If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, import the resource group to state before the deployment.
-
+> If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before the deployment.
 
 ### Syntax
 ```
