@@ -4,7 +4,7 @@
 ### Description 
 This is a conversion of ARM template *[101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*  to Terraform configuration, and this configuration will deploy following the resources…
  
-![result](https://github.com/AnushaAD/Terraform/blob/master/101-vm-simple-windows/result.PNG)
+![result](https://github.com/AnushaAD/Terraform/blob/master/101-vm-simple-windows/images/result.PNG)
 
 > ### Note:
 > If there is already the specified resource group exists then the script will not continue with the deployment.If you want to deploy the resources to the existing resource group, import the resource 
