@@ -1,12 +1,13 @@
+# Authentication
 provider "azurerm" {
   features {}
-  version         = "~>2.0"
   subscription_id = var.tf_var_arm_subscription_id
   client_id       = var.tf_var_arm_client_id
   client_secret   = var.tf_var_arm_client_secret
   tenant_id       = var.tf_var_arm_tenant_id
 }
 
+# Variable declaration
 variable "tf_var_arm_subscription_id" {
   description = "enter subscription id"
 }
@@ -25,6 +26,7 @@ variable "tf_var_arm_tenant_id" {
 
 variable "resourceGroupName" {
   type        = string
+  default     = "tf-rg"
   description = "Resource Group for this deployment."
 }
 
@@ -36,6 +38,7 @@ variable "vmName" {
 
 variable "admin_username" {
   type        = string
+  default     = "testing"
   description = "Default Admin username"
 }
 
@@ -47,8 +50,8 @@ variable "adminPassword" {
 
 variable "authenticationType" {
   type        = string
-  default     = "ssh"
-  description = "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+  default     = "ssh"  
+  description = "Type of authentication to be used on the Virtual Machine. SSH key is recommended but if you want to use password authentication use 'pwd'"
 }
 
 variable "UbuntuOSVersion" {
