@@ -8,7 +8,7 @@ Cloud Shelll has in-built terraform libraries, deploy these configurations on Cl
 ### Description 
  This is a conversion of ARM template *[101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*  to Terraform Script, and this script will deploy following the resources…
  
-  ![example](example.png)
+  ![output](example.png)
 
 
 > ### Note:
