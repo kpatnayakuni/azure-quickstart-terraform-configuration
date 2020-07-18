@@ -1,3 +1,4 @@
+# Authentication
 provider "azurerm" {
     features {}
      subscription_id = var.tf_var_arm_subscription_id
@@ -5,9 +6,8 @@ provider "azurerm" {
      client_secret = var.tf_var_arm_client_secret
      tenant_id = var.tf_var_arm_tenant_id
 }
-#TF_VAR_ARM_SUBSCRIPTION_ID
-#arm_client_id
 
+# Variable declaration
 variable "tf_var_arm_subscription_id" {
     description = "enter subscription id"
 }
@@ -26,16 +26,19 @@ variable "tf_var_arm_tenant_id" {
 
 variable "resourceGroupName" {
     type        = string
+    default     = "demo-rg"
     description = "Resource Group for this deployment."
 }
 
 variable "location" {
     type        = string
+    default     = "WestUS"
     description = "Location for all resources"
 }
 
 variable "adminUsername" {
     type        = string
+    default     = "demo_user"
     description = "Username for the Virtual Machine."
 }
 
@@ -46,6 +49,7 @@ variable "adminPassword" {
 
 variable "dnsLabelPrefix" {
     type        = string
+    default     = "demodns2020"
     description = "Unique DNS Name for the Public IP used to access the Virtual Machine."
 }
 

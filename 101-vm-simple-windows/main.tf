@@ -1,3 +1,4 @@
+# Defining the local variables
 locals  {
     storageAccountName          = lower(join("", ["sawinvm", random_string.asaname-01.result]))
     nicName                     = "myVMNic"
@@ -11,21 +12,25 @@ locals  {
     osDiskName                  = join("",[local.vmName, "_OsDisk_1_", lower(random_string.avmosd-01.result)])
 }
 
+# Generate random string for Storage account
 resource "random_string" "asaname-01" {
     length  = 16
     special = "false"
 }
 
+# Generate random string for OS disk 
 resource "random_string" "avmosd-01" {
     length  = 32
     special = "false"
 }
 
+# Resource Group
 resource "azurerm_resource_group" "arg-01" {
     name        = var.resourceGroupName
     location    = var.location
 }
 
+# Storage account
 resource "azurerm_storage_account" "asa-01" {
     name                        = local.storageAccountName
     resource_group_name         = azurerm_resource_group.arg-01.name
@@ -34,6 +39,7 @@ resource "azurerm_storage_account" "asa-01" {
     account_tier                = "Standard"
 }
 
+# Public IP
 resource "azurerm_public_ip" "apip-01" {
     name                = local.publicIPAddressName
     resource_group_name = azurerm_resource_group.arg-01.name
@@ -42,6 +48,7 @@ resource "azurerm_public_ip" "apip-01" {
     domain_name_label   = var.dnsLabelPrefix
 }
 
+# Network Security group
 resource "azurerm_network_security_group" "ansg-01" {
     name                = local.networkSecurityGroupName
     resource_group_name = azurerm_resource_group.arg-01.name
@@ -59,6 +66,7 @@ resource "azurerm_network_security_group" "ansg-01" {
     }
 }
 
+# Virtual Network
 resource "azurerm_virtual_network" "avn-01" {
     name                = local.virtualNetworkName
     resource_group_name = azurerm_resource_group.arg-01.name
@@ -66,6 +74,7 @@ resource "azurerm_virtual_network" "avn-01" {
     address_space       = [local.addressPrefix]
 }
 
+# Subnet
 resource "azurerm_subnet" "as-01" {
     name                  = local.subnetName
     resource_group_name   = azurerm_resource_group.arg-01.name
@@ -73,11 +82,13 @@ resource "azurerm_subnet" "as-01" {
     address_prefixes        = [local.subnetPrefix]
 }
 
+# Associate subnet and network security group 
 resource "azurerm_subnet_network_security_group_association" "asnsga-01" {
     subnet_id                   = azurerm_subnet.as-01.id
     network_security_group_id   = azurerm_network_security_group.ansg-01.id
 }
 
+# Network interface with IP configuration
 resource "azurerm_network_interface" "anic-01" {
     name                = local.nicName
     resource_group_name = azurerm_resource_group.arg-01.name
@@ -90,6 +101,7 @@ resource "azurerm_network_interface" "anic-01" {
     }
 }
 
+# Virtual Machine
 resource "azurerm_virtual_machine" "avm-01" {
     name                    = local.vmName
     resource_group_name     = azurerm_resource_group.arg-01.name
@@ -126,6 +138,8 @@ resource "azurerm_virtual_machine" "avm-01" {
     }
 }
 
+## Output
+# Host FQDN
 output "hostname" {
     value   = azurerm_public_ip.apip-01.fqdn
 }
