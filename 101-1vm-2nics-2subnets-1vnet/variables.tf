@@ -38,7 +38,7 @@ variable "virtual_machine_size" {
 
 variable "admin_username" {
     type = string
-    default = demo_user
+    default = "demo_user"
     description= "Default Admin username"
 }
 
