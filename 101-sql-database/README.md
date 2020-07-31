@@ -23,8 +23,8 @@ PS C:\Terraform\101-sql-database> terraform apply
 
 ### Example
 ```
-PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform init 
-PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform plan
+PS C:\Terraform\101-sql-database> terraform init 
+PS C:\Terraform\101-sql-database> terraform plan
 
   var.SQLServer
   The name of the SQL logical server.
@@ -36,7 +36,7 @@ PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform plan
 
 <--- output truncated --->
 
-PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform apply 
+PS C:\Terraform\101-sql-database> terraform apply 
 
   var.SQLServer
   The name of the SQL logical server.
