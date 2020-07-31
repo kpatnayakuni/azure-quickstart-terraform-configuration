@@ -2,12 +2,12 @@
 ## Create 2 Virtual Machines under an Internal Load balancer and configures Load Balancing rules for the VMs
 ## Description
 
-This is a conversion of ARM template *[201-2-vms-internal-load-balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform code, and this code will deploy following the resources…
+This is a conversion of ARM template *[201-2-vms-internal-load-balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources…
 
 ![output](images/resources.png)
 
 > ### Note:
-> If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
+> If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
 
 ### Syntax
 ```
@@ -37,7 +37,7 @@ PS C:\Terraform\201-2-vms-internal-load-balancer> terraform apply
 var.adminPassword
 Password for the Virtual Machine.
 Enter a value: *********
-````
+```
 
 ### Output
 

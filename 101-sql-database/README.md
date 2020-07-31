@@ -2,12 +2,12 @@
 ## Azure SQL Database
 ## Description
 
-This is a conversion of ARM template *[101-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-database)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform code, and this code will deploy following the resources…
+This is a conversion of ARM template *[101-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-database)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources…
 
 ![output](images/resources.png)
 
 > ### Note:
-> If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
+> If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
 
 ### Syntax
 ```
@@ -16,26 +16,11 @@ PS C:\Terraform\101-sql-database> terraform init
 
 # To check the execution plan
 PS C:\Terraform\101-sql-database> terraform plan
-  
-  var.SQLServer
-  The name of the SQL logical server.
-  Enter a value: demosqlserver
-
-  var.administratorLoginPassword
-  The administrator password of the SQL logical server.
-  Enter a value: ****
 
 # To deploy the configuration
 PS C:\Terraform\101-sql-database> terraform apply
-
-  var.SQLServer
-  The name of the SQL logical server.
-  Enter a value: demosqlserver
-
-  var.administratorLoginPassword
-  The administrator password of the SQL logical server.
-  Enter a value: ******
 ```  
+
 ### Example
 ```
 PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform init 
@@ -60,7 +45,7 @@ PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform apply
   var.administratorLoginPassword
   The administrator password of the SQL logical server.
   Enter a value: ******
-  ````
+```
 
 ### Output
 
