@@ -25,10 +25,11 @@ resource "azurerm_sql_server" "SQL-Ser-01" {
   administrator_login_password = var.administratorLoginPassword
 }
 
+
 # Azure SQL database
-resource "azurerm_sql_database" "SQL-Db-01" {
-  name                = var.sqldbname
-  resource_group_name = azurerm_resource_group.arg-01.name
-  location            = azurerm_resource_group.arg-01.location
-  server_name         = azurerm_sql_server.SQL-Ser-01.name
+resource "azurerm_mssql_database" "SQL-Db-01" {
+  name           = var.sqldbname
+  server_id      = azurerm_sql_server.SQL-Ser-01.id
+  sku_name       = "s0"
+  
 }
