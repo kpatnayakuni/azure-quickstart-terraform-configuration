@@ -3,8 +3,10 @@
 ## Description
 This is a conversion of ARM template *[101-vnet-two-subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform code, and this code will deploy following the resources…
 
+### Virtual Networks
 ![output](images/virtualnetwork.png)  
     
+### Subnets
 ![output](images/subnets.png) 
 
 > ### Note:
@@ -24,11 +26,13 @@ PS C:\Terraform\101-vnet-two-subnets> terraform apply
 
 ### Example
 ```
-PS C:\Terraform\101-vnet-two-subnets> terraform init 
+# Initialize
+PS C:\Terraform\101-vnet-two-subnets> terraform init
+
+# Plan
 PS C:\Terraform\101-vnet-two-subnets> terraform plan
 
-<--- output truncated --->
-
+# Apply
 PS C:\Terraform\101-vnet-two-subnets> terraform apply 
 ````
 

@@ -6,9 +6,6 @@ This is a conversion of ARM template *[101-azure-bastion-nsg](https://github.com
 
 ![output](images/resources.png)
 
-> ### Note:
-> We are using data resource to fetch the details of  existing virtual network to deploy the AzureBastionSubnet to that existing virtual network.
-
 ### Syntax
 ```
 # To initialize the configuration directory
@@ -22,21 +19,20 @@ PS C:\Terraform\101-azure-bastion-nsg> terraform apply
 ```
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-azure-bastion-nsg> terraform init 
 
-# With an existing vnet
+# Plan with an existing vnet
 PS C:\Terraform\101-azure-bastion-nsg> terraform plan -var="vnetname-existing=vnet01" -var="existing-rg=demo-rg" -var="vnet-new-or-existing=existing"
 
-# With a new vnet
+# Plan with a new vnet
 PS C:\Terraform\101-azure-bastion-nsg> terraform plan -var="vnet-new-or-existing=new"
 
-<--- output truncated --->
-
 # To deploy a new bastion host within an existing vnet
-PS C:\Terraform\101-azure-bastion-nsg> terraform apply -var="vnetname-existing=vnet01" -var="existing-rg=demo-rg" -var="vnet-new-or-existing=existing" -auto-approve
+PS C:\Terraform\101-azure-bastion-nsg> terraform apply -var="vnetname-existing=vnet01" -var="existing-rg=demo-rg" -var="vnet-new-or-existing=existing"
 
 # To deploy a new bastion host with a new vnet
-PS C:\Terraform\101-azure-bastion-nsg> terraform apply -var="vnet-new-or-existing=new" -auto-approve
+PS C:\Terraform\101-azure-bastion-nsg> terraform apply -var="vnet-new-or-existing=new"
 ````
 ### Output
 
