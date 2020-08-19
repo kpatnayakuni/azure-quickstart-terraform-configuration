@@ -6,6 +6,9 @@ This is a conversion of ARM template *[101-azure-bastion-nsg](https://github.com
 
 ![output](images/resources.png)
 
+> Note:
+> We are using data resource to fetch the details of existing virtual network to deploy the AzureBastionSubnet to that existing virtual network.
+
 ### Syntax
 ```
 # To initialize the configuration directory
