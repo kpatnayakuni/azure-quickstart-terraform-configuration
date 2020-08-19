@@ -23,20 +23,20 @@ PS C:\Terraform\101-azure-bastion-nsg> terraform apply
 ### Example
 ```
 PS C:\Terraform\101-azure-bastion-nsg> terraform init 
-PS C:\Terraform\101-azure-bastion-nsg> terraform plan
 
-    var.vnet-new-or-existing
-    Specify whether to provision new vnet or deploy to existing vnet
+# With an existing vnet
+PS C:\Terraform\101-azure-bastion-nsg> terraform plan -var="vnetname-existing=vnet01" -var="existing-rg=demo-rg" -var="vnet-new-or-existing=existing"
 
-    Enter a value: new
+# With a new vnet
+PS C:\Terraform\101-azure-bastion-nsg> terraform plan -var="vnet-new-or-existing=new"
 
 <--- output truncated --->
 
-PS C:\Terraform\101-azure-bastion-nsg> terraform apply 
-   var.vnet-new-or-existing
-   Specify whether to provision new vnet or deploy to existing vnet
+# To deploy a new bastion host within an existing vnet
+PS C:\Terraform\101-azure-bastion-nsg> terraform apply -var="vnetname-existing=vnet01" -var="existing-rg=demo-rg" -var="vnet-new-or-existing=existing" -auto-approve
 
-   Enter a value: new
+# To deploy a new bastion host with a new vnet
+PS C:\Terraform\101-azure-bastion-nsg> terraform apply -var="vnet-new-or-existing=new" -auto-approve
 ````
 ### Output
 
