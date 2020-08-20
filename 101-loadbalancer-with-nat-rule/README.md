@@ -7,8 +7,7 @@ This configuration allows you to create a Load Balancer, Public IP address for t
 
 This configuration will deploy the following  resources…
 
-
-![](images/resources.png)
+![output](images/resources.PNG)
 
 > ### Note:
 > If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
