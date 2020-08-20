@@ -2,7 +2,11 @@
 ## Azure SQL Database
 ## Description
 
-This is a conversion of ARM template *[101-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-database)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources…
+This is a conversion of ARM template *[101-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-database)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+This configuration allows you to create Azure SQL Database.
+
+
+This configuration will deploy the following resources…
 
 ![output](images/resources.png)
 

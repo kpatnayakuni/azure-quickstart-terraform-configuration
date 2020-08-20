@@ -2,7 +2,15 @@
 ## Create 2 Virtual Machines under an Internal Load balancer and configures Load Balancing rules for the VMs
 ## Description
 
-This is a conversion of ARM template *[201-2-vms-internal-load-balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources…
+This is a conversion of ARM template *[201-2-vms-internal-load-balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+
+This configuration allows you to create 2 Virtual Machines under an Internal Load balancer
+
+This configuration also deploys a Storage Account, Virtual Network, Availability Set and Network Interfaces.
+
+The Azure Load Balancer is assigned a static IP in the Virtual Network and is configured to load balance on Port 80.
+
+This configuration will deploy the following resources…
 
 ![output](images/resources.png)
 

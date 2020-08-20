@@ -1,7 +1,12 @@
 # Terraform: 101-vnet-two-subnets 
 ## Virtual Network with two Subnets
 ## Description
-This is a conversion of ARM template *[101-vnet-two-subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform code, and this code will deploy following the resources…
+This is a conversion of ARM template *[101-vnet-two-subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+
+This configuration allows you to create a Virtual Network with two subnets.
+
+
+ This configuration will deploy the following resources…
 
 ### Virtual Networks
 ![output](images/virtualnetwork.png)  
