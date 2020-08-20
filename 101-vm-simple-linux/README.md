@@ -2,7 +2,12 @@
 # Terraform: 101-vm-simple-linux
 ## Very simple deployment of a Linux VM 
 ## Description
-This is a conversion of ARM template *[101-vm-simple-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources...
+This is a conversion of ARM template *[101-vm-simple-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+
+This configuration deploys a Linux VM Ubuntu using the latest patched version. This will deploy a Standard_B2s size VM and a 18.04-LTS Version as defaultValue in the resource group location and will return the admin user name, Virtual Network Name, Network Security Group Name and FQDN.
+
+
+This configuration will deploy the following resources...
 
 ![output](images/simplelinux.png)
 

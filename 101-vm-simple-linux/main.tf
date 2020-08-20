@@ -103,7 +103,7 @@ resource "azurerm_linux_virtual_machine" "avm-ssh-01" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = var.UbuntuOSVersion[3]
+    sku       = var.UbuntuOSVersion[0]
     version   = "latest"
   }
   admin_username                  = var.admin_username
@@ -130,7 +130,7 @@ resource "azurerm_linux_virtual_machine" "avm-pwd-01" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = var.UbuntuOSVersion[3]
+    sku       = var.UbuntuOSVersion[0]
     version   = "latest"
   }
   admin_username                  = var.admin_username
