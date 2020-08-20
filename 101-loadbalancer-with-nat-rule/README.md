@@ -1,11 +1,12 @@
 # Terraform: 101-loadbalancer-with-nat-rule 
-## Loadbalancer-with-nat-rule
+## Load Balancer with Inbound NAT Rule
 ## Description
-This is a conversion of ARM template *[101-loadbalancer-with-nat-rule](https://github.com/Azure/azure-quickstart-templates/tree/master/101-loadbalancer-with-nat-rule)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform Configuration.
+This is a conversion of ARM template *[101-loadbalancer-with-nat-rule](https://github.com/Azure/azure-quickstart-templates/tree/master/101-loadbalancer-with-nat-rule)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
 
-This configuaration allows you to create a Load Balancer, Public IP address for the Load balancer, Virtual Network, Network Interface in the Virtual Network & a NAT Rule in the Load Balancer that is used by the Network Interface.
+This configuration allows you to create a Load Balancer, Public IP address for the Load balancer, Virtual Network, Network Interface in the Virtual Network & a NAT Rule in the Load Balancer that is used by the Network Interface.
 
-This configuaration will deploy following the resources…
+This configuration will deploy the following  resources…
+
 
 ![output](images/resources.png)
 
@@ -28,6 +29,9 @@ PS C:\Terraform\101-loadbalancer-with-nat-rule> terraform apply
 ```
 PS C:\Terraform\101-loadbalancer-with-nat-rule> terraform init 
 PS C:\Terraform\101-loadbalancer-with-nat-rule> terraform plan
+
+<--- output truncated --->
+
 PS C:\Terraform\101-loadbalancer-with-nat-rule> terraform apply 
 
 ```
