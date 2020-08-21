@@ -8,7 +8,7 @@ This is a conversion of ARM template *[101-sql-database](https://github.com/Azur
 
 This configuration allows you to create Azure SQL Database, and it will deploy the following resources…
 
-![output](images/resources.png)
+![output](resources.png)
 
 > ### Note:
 > If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
