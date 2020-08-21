@@ -45,32 +45,32 @@ variable "vnet-name" {
 }
 
 variable "vnet-ip-prefix" {
-  type    = string
-  default = "10.1.0.0/16"
+  type        = string
+  default     = "10.1.0.0/16"
   description = "IP prefix for available addresses in vnet address space"
 }
 
 variable "vnet-new-or-existing" {
-  type  = string
+  type        = string
   description = "Specify whether to provision new vnet or deploy to existing vnet"
 }
 
- variable "vnetname-existing" {
-  type = string
-  default = "vnet-existing"
+variable "vnetname-existing" {
+  type        = string
+  default     = "vnet-existing"
   description = "enter existing vnet name"
 }
 
 variable "existing-rg" {
-  type = string
-  default = "vnet-rg"
+  type        = string
+  default     = "vnet-rg"
   description = "Enter exisitng RG name"
 }  
 
 variable "bastion-host-name" {
   type         = string
   default      = "bastion-host"
-   description = "Name of Azure Bastion resource"
+  description = "Name of Azure Bastion resource"
 
 }
 
