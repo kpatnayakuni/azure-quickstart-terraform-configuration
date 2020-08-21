@@ -1,10 +1,10 @@
 # Authentication
 provider "azurerm" {
     features {}
-     subscription_id = var.tf_var_arm_subscription_id
-     client_id  = var.tf_var_arm_client_id
-     client_secret = var.tf_var_arm_client_secret
-     tenant_id = var.tf_var_arm_tenant_id
+    subscription_id    = var.tf_var_arm_subscription_id
+    client_id          = var.tf_var_arm_client_id
+    client_secret      = var.tf_var_arm_client_secret
+    tenant_id          = var.tf_var_arm_tenant_id
 }
 
 # Variable declaration
@@ -25,47 +25,43 @@ variable "tf_var_arm_tenant_id" {
 }
 
 variable "resource_group_name" {
-    type = string
-    default = "terraform-rg"
+    type        = string
+    default     = "terraform-rg"
     description = "Enter the resource group name"
 }
 
-
 variable "networkInterfaceName" {
-    type = string
-    default = "nic"
+    type        = string
+    default     = "nic"
     description = "default Network interface name"
 }
 
 variable "location" {
-    type = string
-    default = "westus"
+    type        = string
+    default     = "westus"
     description = "Enter the location for all resources."
 }
 
 variable "dnsNameforLBIP" {
-type =  string
-description = "Unique DNS name"
-default = "demodnsaug"
+    type        =  string
+    default     = "demodnsaug"
+    description = "Unique DNS name"
 }
 
 variable "addressPrefix"{
-type =  string
-default = "10.5.0.0/16"
-
+    type        =  string
+    default     = "10.5.0.0/16"
+    description = "Address Prefix"
 }
 
 variable "subnetPrefix"{
-  type =  string
-  default = "10.5.0.0/24"
+    type        =  string
+    default     = "10.5.0.0/24"
+    description = "Subnet Prefix"
 }
 
 variable "publicIPAddressType"{
-description = "Public IP type must be one of 'Dynamic','Static' "
-type = string
-default = "Dynamic"
-
+    type        = string
+    default     = "Dynamic"
+    description = "Public IP type must be one of 'Dynamic','Static' "
 }
-
-
-
