@@ -5,8 +5,8 @@ locals {
 
 # Random string for sqlserver name  
 resource "random_string" "srvname" {
-  length = 16
-  override_special = "-"
+  length            = 16
+  override_special  = "-"
 }
 
 # Resource Group
@@ -25,11 +25,9 @@ resource "azurerm_sql_server" "SQL-Ser-01" {
   administrator_login_password = var.administratorLoginPassword
 }
 
-
 # Azure SQL database
 resource "azurerm_mssql_database" "SQL-Db-01" {
   name           = var.sqldbname
   server_id      = azurerm_sql_server.SQL-Ser-01.id
-  sku_name       = "s0"
-  
+  sku_name       = "s0"  
 }
