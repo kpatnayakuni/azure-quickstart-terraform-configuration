@@ -1,4 +1,3 @@
-
 # Terraform: 101-vm-simple-linux
 
 ## Very simple deployment of a Linux VM 
@@ -27,7 +26,10 @@ PS C:\Terraform\101-vm-simple-linux> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-vm-simple-linux> terraform init 
+
+# Plan
 PS C:\Terraform\101-vm-simple-linux> terraform plan
 
 var.adminPassword
@@ -36,12 +38,13 @@ Enter a value: *********
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-vm-simple-linux> terraform apply 
 
 var.adminPassword
 Password for the Virtual Machine.
 Enter a value: *********
-````
+```
 
 >Assuming public key is already generated and stored in your home directory ("~/.ssh/")
 

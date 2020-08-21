@@ -26,7 +26,10 @@ PS C:\Terraform\101-vm-simple-windows> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-vm-simple-windows> terraform init 
+
+# Plan
 PS C:\Terraform\101-vm-simple-windows> terraform plan
 
 var.adminPassword
@@ -35,6 +38,7 @@ Enter a value: *********
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-vm-simple-windows> terraform apply 
 
 var.adminPassword

@@ -27,7 +27,10 @@ PS C:\Terraform\101-sql-database> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-sql-database> terraform init 
+
+# Plan
 PS C:\Terraform\101-sql-database> terraform plan
 
   var.SQLServer
@@ -40,6 +43,7 @@ PS C:\Terraform\101-sql-database> terraform plan
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-sql-database> terraform apply 
 
   var.SQLServer

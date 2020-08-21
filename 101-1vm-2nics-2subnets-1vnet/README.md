@@ -26,7 +26,10 @@ PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform init 
+
+# Plan
 PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform plan
 
 var.adminPassword
@@ -35,15 +38,15 @@ Enter a value: *********
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-1vm-2nics-2subnets-1vnet> terraform apply 
 
 var.adminPassword
 Password for the Virtual Machine.
 Enter a value: *********
-````
+```
 
 ### Output
-
 ```
 azurerm_virtual_machine.avm-01: Creating...
 azurerm_virtual_machine.avm-01: Still creating... [10s elapsed]
