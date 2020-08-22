@@ -2,49 +2,49 @@
 locals {
 	virtualNetworkName	= "virtualNetwork1"
 	publicIPAddressName = "publicIp1"
-	subnetname 			= "subnet1"
-	loadBalancerName 	= "loadBalancer1"
-	nicName 			= "networkInterface1"
+	subnetname 					= "subnet1"
+	loadBalancerName 		= "loadBalancer1"
+	nicName 						= "networkInterface1"
 }
 
 # Resource Group
 resource "azurerm_resource_group" "arg-01" {
-	name		= var.resource_group_name
+	name			= var.resource_group_name
 	location	= var.location
 }
 
 # Virtual Network
 resource "azurerm_virtual_network" "avn-01" {
-	name				= local.virtualNetworkName
-	location			= azurerm_resource_group.arg-01.location
+	name								= local.virtualNetworkName
+	location						= azurerm_resource_group.arg-01.location
 	resource_group_name	= azurerm_resource_group.arg-01.name
-	address_space		= [var.addressPrefix]
+	address_space				= [var.addressPrefix]
 }
 
 # Subnet
 resource "azurerm_subnet" "as-01" {
-	name					= local.subnetname
+	name									= local.subnetname
 	resource_group_name		= azurerm_resource_group.arg-01.name
 	virtual_network_name	= azurerm_virtual_network.avn-01.name
-	address_prefixes 		= [var.subnetPrefix]
+	address_prefixes 			= [var.subnetPrefix]
 }
 
 # Network interface
 resource "azurerm_network_interface" "ani-01" {
-	name				= var.networkInterfaceName
-	location 			= azurerm_resource_group.arg-01.location
+	name								= var.networkInterfaceName
+	location 						= azurerm_resource_group.arg-01.location
 	resource_group_name	= azurerm_resource_group.arg-01.name
 	ip_configuration {
-		name 							= "ipconfig1"
+		name 													= "ipconfig1"
 		private_ip_address_allocation	= "Dynamic"
-		subnet_id 						= azurerm_subnet.as-01.id
+		subnet_id 										= azurerm_subnet.as-01.id
 	}
 }
 
 # Public ip for load balancer
 resource "azurerm_public_ip" "apip-01" {
-	name				= local.publicIPAddressName
-	location 			= azurerm_resource_group.arg-01.location
+	name								= local.publicIPAddressName
+	location 						= azurerm_resource_group.arg-01.location
 	resource_group_name	= azurerm_resource_group.arg-01.name
 	allocation_method   = var.publicIPAddressType
 	domain_name_label 	= var.dnsNameforLBIP
@@ -52,12 +52,12 @@ resource "azurerm_public_ip" "apip-01" {
 
 #Load Balancer
 resource "azurerm_lb" "alb-01" {
-	name 				= local.loadBalancerName
-	location 			= azurerm_resource_group.arg-01.location
+	name 								= local.loadBalancerName
+	location 						= azurerm_resource_group.arg-01.location
 	resource_group_name	= azurerm_resource_group.arg-01.name
-	sku 				= "basic"
+	sku 								= "basic"
 	frontend_ip_configuration {
-		name					= "LoadBalancerFrontEnd"
+		name									= "LoadBalancerFrontEnd"
 		public_ip_address_id	= azurerm_public_ip.apip-01.id
 	}
 }
@@ -82,9 +82,9 @@ resource "azurerm_network_interface_nat_rule_association" "anna-01" {
 
 # Backend address pool
 resource "azurerm_lb_backend_address_pool" "abp-01" {
-	name 				= "loadbalencerbackend"
-	resource_group_name = azurerm_resource_group.arg-01.name
-	loadbalancer_id 	= azurerm_lb.alb-01.id
+	name 								= "loadbalencerbackend"
+	resource_group_name	= azurerm_resource_group.arg-01.name
+	loadbalancer_id 		= azurerm_lb.alb-01.id
 }
 
 # Associate network Interface and backend address pool

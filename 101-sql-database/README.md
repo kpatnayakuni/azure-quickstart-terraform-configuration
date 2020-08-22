@@ -1,10 +1,14 @@
 # Terraform: 101-sql-database
+
 ## Azure SQL Database
+
 ## Description
 
-This is a conversion of ARM template *[101-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-database)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration, and this configuration will deploy following the resources…
+This is a conversion of ARM template *[101-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-database)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
 
-![output](images/resources.png)
+This configuration allows you to create Azure SQL Database, and it will deploy the following resources…
+
+![output](resources.png)
 
 > ### Note:
 > If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
@@ -23,7 +27,10 @@ PS C:\Terraform\101-sql-database> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-sql-database> terraform init 
+
+# Plan
 PS C:\Terraform\101-sql-database> terraform plan
 
   var.SQLServer
@@ -36,6 +43,7 @@ PS C:\Terraform\101-sql-database> terraform plan
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-sql-database> terraform apply 
 
   var.SQLServer
@@ -48,7 +56,6 @@ PS C:\Terraform\101-sql-database> terraform apply
 ```
 
 ### Output
-
 ```
 azurerm_sql_server.SQL-Ser-01: Still creating..
 
@@ -61,4 +68,4 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
 >Azure Cloud Shelll comes with terraform pre-installed and you deploy this configuration in Cloud Shell as well.
 >
->[![cloudshell](images/cloudshell.png)](https://shell.azure.com)
+>[![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
