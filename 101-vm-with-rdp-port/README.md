@@ -1,9 +1,11 @@
-# Terraform: 101-vm-with-rdp-port 
-## Create a VM with an RDP port
-## Description
-This is a conversion of ARM template *[101-vm-with-rdp-port](https://github.com/veeresh-490/azure-quickstart-templates/tree/master/101-vm-with-rdp-port)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+# Terraform: 101-vm-with-rdp-port
 
-This sample template demonstrates how to create a NAT rule in loadbalancer to allow RDP to a vm. and it will deploy the following resources...
+## Create a VM with an RDP port
+
+## Description
+This is a conversion of ARM template *[101-vm-with-rdp-port](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-with-rdp-port)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+
+This configuration demonstrates how to create a NAT rule in loadbalancer to allow RDP to a vm, and it will deploy the following resources...
 
 ![output](resources.PNG)
 
@@ -24,7 +26,10 @@ PS C:\Terraform\101-vm-with-rdp-port> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-vm-with-rdp-port> terraform init 
+
+# Plan
 PS C:\Terraform\101-vm-with-rdp-port> terraform plan
 var.adminPassword
   The password for the administrator account of the new VM
@@ -38,6 +43,7 @@ var.dnsLabelPrefix
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-vm-with-rdp-port> terraform apply
 var.adminPassword
   The password for the administrator account of the new VM
@@ -50,10 +56,9 @@ var.dnsLabelPrefix
   Enter a value: demodns 
   
   <--- output truncated --->
-
 ```
-### Output
 
+### Output
 ```
 random_string.asaname-01: Creating...
 random_string.asaname-01: Creation complete after 0s 
