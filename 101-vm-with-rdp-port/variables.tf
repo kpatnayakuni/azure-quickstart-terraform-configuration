@@ -34,7 +34,6 @@ variable "vmName" {
   type        = string
   default     = "vm"
   description = "The name of the VMe"
-
 }
 
 variable "adminUsername" {
@@ -52,8 +51,8 @@ variable "rdpPort" {
   type        = string
   default     = "50001"
   description = "Public port number for RDP"
-
 }
+
 variable "location" {
   type        = string
   default     = "westus"
@@ -66,12 +65,12 @@ variable "networkInterfaceName" {
   description = "default Network interface name"
 }
 
-
-
 variable "dnsLabelPrefix" {
   type        = string
   description = "Unique public DNS prefix for the deployment. The fqdn will look something like '<dnsname>.westus.cloudapp.azure.com'. Up to 62 chars, digits or dashes, lowercase, should start with a letter: must conform to '^[a-z][a-z0-9-]{1,61}[a-z0-9]$'."
 }
+
+
 
 
 

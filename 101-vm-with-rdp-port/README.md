@@ -3,17 +3,9 @@
 ## Description
 This is a conversion of ARM template *[101-vm-with-rdp-port](https://github.com/veeresh-490/azure-quickstart-templates/tree/master/101-vm-with-rdp-port)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
 
-This sample template demonstrates how to create a NAT rule in loadbalancer to allow RDP to a vm.
+This sample template demonstrates how to create a NAT rule in loadbalancer to allow RDP to a vm. and it will deploy the following resources...
 
-You can connect to the vm using:
-```
-mstsc.exe /v:<publicDnsName>.<location>.cloudapp.azure.com:<rdpPort>
-
-````
-
-This configuration will deploy the following  resources…
-
-![output](images/resources.PNG)
+![output](resources.PNG)
 
 > ### Note:
 > If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
@@ -82,4 +74,4 @@ Connectionstring = mstsc.exe /v:demodns.westus.cloudapp.azure.com:50001
 
 >Azure Cloud Shelll comes with terraform pre-installed and you deploy this configuration in Cloud Shell as well.
 >
->[![cloudshell](images/cloudshell.png)](https://shell.azure.com)
+>[![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)

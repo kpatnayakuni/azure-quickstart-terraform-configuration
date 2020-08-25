@@ -62,6 +62,7 @@ resource "azurerm_network_security_group" "ansg-01" {
     destination_address_prefix = "*"
   }
 }
+
 # Virtual Network
 resource "azurerm_virtual_network" "avn-01" {
   name                = local.virtualNetworkName
@@ -83,6 +84,7 @@ resource "azurerm_subnet_network_security_group_association" "asnsga-01" {
   subnet_id                 = azurerm_subnet.as-01.id
   network_security_group_id = azurerm_network_security_group.ansg-01.id
 }
+
 resource "azurerm_lb" "alb-01" {
   name                = "loadBalancer"
   location            = azurerm_resource_group.arg-01.location
@@ -112,6 +114,7 @@ resource "azurerm_lb_nat_rule" "anrule-01" {
   backend_port                   = 3389
   frontend_ip_configuration_name = "LBFE"
 }
+
 # Network interface
 resource "azurerm_network_interface" "anic-01" {
 
@@ -133,13 +136,13 @@ resource "azurerm_network_interface_nat_rule_association" "anna-01" {
   nat_rule_id           = azurerm_lb_nat_rule.anrule-01.id
 }
 
-
 # Associate network Interface and backend address pool
 resource "azurerm_network_interface_backend_address_pool_association" "assbp-01" {
   network_interface_id    = azurerm_network_interface.anic-01.id
   ip_configuration_name   = "ipconfig1"
   backend_address_pool_id = azurerm_lb_backend_address_pool.abp-01.id
 }
+
 # Virtual Machine
 resource "azurerm_windows_virtual_machine" "avm-01" {
   name                  = local.vmName
@@ -160,16 +163,14 @@ resource "azurerm_windows_virtual_machine" "avm-01" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-
   boot_diagnostics {
 
     storage_account_uri = "https://${azurerm_storage_account.asa-01.name}.blob.core.windows.net/"
   }
 }
 
-
 output "Connectionstring" {
 
   value = "mstsc.exe /v:${azurerm_public_ip.apip-01.fqdn}:${var.rdpPort}"
-
 }
+
