@@ -93,20 +93,17 @@ resource "azurerm_windows_virtual_machine" "avm-01" {
   network_interface_ids = [azurerm_network_interface.anic-01.id]
   admin_username        = var.adminUsername
   admin_password        = var.adminPassword
-
   os_disk {
     name                 = local.OSDiskName
     caching              = "ReadWrite"
     storage_account_type = var.disktype[0]
     disk_size_gb         = 128
-
   }
   source_image_reference {
     publisher = local.imagePublisher
     offer     = local.imageOffer
     sku       = var.windowsOSVersion[0]
     version   = "latest"
-
   }
 }
 
