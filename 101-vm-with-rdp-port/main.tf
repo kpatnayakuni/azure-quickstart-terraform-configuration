@@ -14,7 +14,7 @@ locals {
   osDiskName               = join("", [local.vmName, "_OsDisk_1_"])
 }
 
-#Random string for Storage account
+# Random string for Storage account
 resource "random_string" "asaname-01" {
   length  = 16
   special = "false"
@@ -26,7 +26,6 @@ resource "azurerm_resource_group" "arg-01" {
   location = var.location
 }
 
-
 # Public ip for load balancer
 resource "azurerm_public_ip" "apip-01" {
   name                = "publicIp"
@@ -36,7 +35,7 @@ resource "azurerm_public_ip" "apip-01" {
   domain_name_label   = var.dnsLabelPrefix
 }
 
-#Storage account for Boot diagnostics
+# Storage account for Boot diagnostics
 resource "azurerm_storage_account" "asa-01" {
   name                     = local.storageAccountName
   resource_group_name      = azurerm_resource_group.arg-01.name
@@ -71,7 +70,7 @@ resource "azurerm_virtual_network" "avn-01" {
   address_space       = [local.vnetAddressRange]
 }
 
-#Subnet
+# Subnet
 resource "azurerm_subnet" "as-01" {
   name                 = local.subnetName
   resource_group_name  = azurerm_resource_group.arg-01.name
@@ -85,6 +84,7 @@ resource "azurerm_subnet_network_security_group_association" "asnsga-01" {
   network_security_group_id = azurerm_network_security_group.ansg-01.id
 }
 
+# Load Balancer
 resource "azurerm_lb" "alb-01" {
   name                = "loadBalancer"
   location            = azurerm_resource_group.arg-01.location
@@ -93,7 +93,6 @@ resource "azurerm_lb" "alb-01" {
   frontend_ip_configuration {
     name                 = "LBFE"
     public_ip_address_id = azurerm_public_ip.apip-01.id
-
   }
 }
 
@@ -117,7 +116,6 @@ resource "azurerm_lb_nat_rule" "anrule-01" {
 
 # Network interface
 resource "azurerm_network_interface" "anic-01" {
-
   name                = "${var.vmName}-nic"
   location            = azurerm_resource_group.arg-01.location
   resource_group_name = azurerm_resource_group.arg-01.name
@@ -125,7 +123,6 @@ resource "azurerm_network_interface" "anic-01" {
     name                          = "ipconfig1"
     private_ip_address_allocation = "Dynamic"
     subnet_id                     = azurerm_subnet.as-01.id
-
   }
 }
 
@@ -152,7 +149,6 @@ resource "azurerm_windows_virtual_machine" "avm-01" {
   admin_username        = var.adminUsername
   admin_password        = var.adminPassword
   network_interface_ids = [azurerm_network_interface.anic-01.id]
-
   source_image_reference {
     publisher = local.imagePublisher
     offer     = local.imageOffer
@@ -164,13 +160,11 @@ resource "azurerm_windows_virtual_machine" "avm-01" {
     storage_account_type = "Standard_LRS"
   }
   boot_diagnostics {
-
     storage_account_uri = "https://${azurerm_storage_account.asa-01.name}.blob.core.windows.net/"
   }
 }
 
+# Output
 output "Connectionstring" {
-
   value = "mstsc.exe /v:${azurerm_public_ip.apip-01.fqdn}:${var.rdpPort}"
 }
-
