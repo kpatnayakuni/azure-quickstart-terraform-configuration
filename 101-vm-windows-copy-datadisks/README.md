@@ -25,7 +25,10 @@ PS C:\Terraform\101-vm-windows-copy-datadisks> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-vm-windows-copy-datadisks> terraform init 
+
+# Plan
 PS C:\Terraform\101-vm-windows-copy-datadisks> terraform plan
 
 var.adminPassword
@@ -34,14 +37,15 @@ Enter a value: *********
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-vm-windows-copy-datadisks> terraform apply -var numberOfDataDisks=5
 
 var.adminPassword
 The admin password of the VM.
 Enter a value: *********
 ```
-### Output
 
+### Output
 ```
 azurerm_network_security_group.ansg-01: Creating...
 azurerm_managed_disk.amd-01[1]: Still creating... [10s elapsed]
