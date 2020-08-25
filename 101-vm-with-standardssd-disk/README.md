@@ -4,8 +4,7 @@
 
 This is a conversion of ARM template *[101-vm-with-standardssd-disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
 
-This configuration allows you to create a Windows Virtual Machine from a specified image during the template deployment. It also attaches multiple empty Standard SSD data disks. Note that you can specify the size of each of the empty data disks. It also deploys a Virtual Network, Public IP addresses and a Network Interface.
-It will deploy the following resources…
+This configuration allows you to create a Windows Virtual Machine from a specified image during the template deployment. It also attaches multiple empty Standard SSD data disks. Note that you can specify the size of each of the empty data disks. It also deploys a Virtual Network, Public IP addresses and a Network Interface, and it will deploy the following resources…
 
 ![output](resources.png)
 
@@ -26,7 +25,10 @@ PS C:\Terraform\101-vm-with-standardssd-disk> terraform apply
 
 ### Example
 ```
+# Initialize
 PS C:\Terraform\101-vm-with-standardssd-disk> terraform init 
+
+# Plan
 PS C:\Terraform\101-vm-with-standardssd-disk> terraform plan
 
 var.adminUsername
@@ -39,6 +41,7 @@ Enter a value: *********
 
 <--- output truncated --->
 
+# Apply
 PS C:\Terraform\101-vm-with-standardssd-disk> terraform apply 
 
 var.adminUsername
