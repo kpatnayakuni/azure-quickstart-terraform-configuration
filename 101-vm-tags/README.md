@@ -6,7 +6,7 @@
 
 This is a conversion of ARM template *[101-vm-tags](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
 
-This configuration allows you to deploy a simple Windows VM using a few different options for the Windows version, using the latest patched version. It include tags on the Virtual Machine, Storage Account, Public IP Address, Virtual Network, and Network Interface.
+This configuration allows you to deploy a simple Windows VM using a few different options for the Windows version, using the latest patched version. It include tags on the Virtual Machine, Storage Account, Public IP Address, Virtual Network, and Network Interface, and it will deploy the following resources...
 
 ![output](resources.png)
 
@@ -33,6 +33,10 @@ PS C:\Terraform\101-vm-tags> terraform init
 # Plan
 PS C:\Terraform\101-vm-tags> terraform plan
 
+var.adminUsername
+Default Admin username
+Enter a value: cloudguy
+
 var.adminPassword
 Password for the Virtual Machine.
 Enter a value: *********
@@ -41,6 +45,10 @@ Enter a value: *********
 
 # Apply
 PS C:\Terraform\101-vm-tags> terraform apply 
+
+var.adminUsername
+Default Admin username
+Enter a value: cloudguy
 
 var.adminPassword
 Password for the Virtual Machine.

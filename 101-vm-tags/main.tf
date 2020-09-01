@@ -49,8 +49,7 @@ resource "azurerm_storage_account" "asa-01" {
   resource_group_name = azurerm_resource_group.arg-01.name
   location            = azurerm_resource_group.arg-01.location
   account_kind        = "Storage"
-  # sku = local.storageAccountType
-  account_tier             = local.storageAccountTier
+  account_tier        = local.storageAccountTier
   account_replication_type = local.storagereplicationType
   tags = {
     Department   = var.departmentName

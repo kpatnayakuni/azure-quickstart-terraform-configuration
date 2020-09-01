@@ -38,13 +38,11 @@ variable "location" {
 
 variable "adminUsername" {
   type        = string
-  default     = "demo_user"
   description = "Username for the Virtual Machine."
 }
 
 variable "adminPassword" {
   type        = string
-  default     = "Abcd@123"
   description = "Password for the Virtual Machine."
 }
 
