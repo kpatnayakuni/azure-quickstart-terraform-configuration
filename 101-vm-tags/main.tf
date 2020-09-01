@@ -45,11 +45,11 @@ resource "azurerm_resource_group" "arg-01" {
 
 # Storage account
 resource "azurerm_storage_account" "asa-01" {
-  name                = local.storageAccountName
-  resource_group_name = azurerm_resource_group.arg-01.name
-  location            = azurerm_resource_group.arg-01.location
-  account_kind        = "Storage"
-  account_tier        = local.storageAccountTier
+  name                     = local.storageAccountName
+  resource_group_name      = azurerm_resource_group.arg-01.name
+  location                 = azurerm_resource_group.arg-01.location
+  account_kind             = "Storage"
+  account_tier             = local.storageAccountTier
   account_replication_type = local.storagereplicationType
   tags = {
     Department   = var.departmentName
