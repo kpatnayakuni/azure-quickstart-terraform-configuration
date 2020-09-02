@@ -3,3 +3,6 @@
 *.tfstate
 *.tfstate.backup
 *.exe
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+.vs/azure-quickstart-terraform-configuration/v16/.suo
