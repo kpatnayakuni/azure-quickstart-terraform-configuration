@@ -1,5 +1,4 @@
 
-
 # Crete vm in existing resources
 module "AddVMtoexistingVnet" {
   count                    = var.sharedResources == "existing" ? 1 : 0
@@ -9,13 +8,12 @@ module "AddVMtoexistingVnet" {
   vmsize                   = "Standard_D2_v2"
   adminUsername            = var.admin_username
   adminPassword            = var.adminPassword
-  location                 = "westus"
   virtualNetworkName       = "vNet"
   subnetName               = "subnet"
   dnsLabelPrefix           = "demosep2020"
   networkSecurityGroupName = "SecGroupNet"
-  subnetAddressRange = "10.1.1.0/24"
-   publicIPAddressName = "publicip"
+  subnetAddressRange       = "10.1.2.0/24"
+  publicIPAddressName      = "publicip"
 }
 
 #Create vm in new resources
@@ -32,7 +30,22 @@ module "AddVMtNewVnet" {
   subnetName               = "subnet"
   dnsLabelPrefix           = "demosep2020"
   networkSecurityGroupName = "SecGroupNet"
-  addressPrefix = "10.1.0.0/16"
-  subnetAddressRange = "10.1.1.0/24"
-  publicIPAddressName = "publicip"
+  addressPrefix            = "10.1.0.0/16"
+  subnetAddressRange       = "10.1.2.0/24"
+  publicIPAddressName      = "publicip"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

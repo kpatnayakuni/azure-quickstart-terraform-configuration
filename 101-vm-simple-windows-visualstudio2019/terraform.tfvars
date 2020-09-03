@@ -1,3 +1,4 @@
+
 # Place your SPN values
 tf_var_arm_client_id       = "<client id>"
 tf_var_arm_subscription_id = "<subscription id>"

@@ -24,9 +24,6 @@ variable "tf_var_arm_tenant_id" {
   description = "Enter tenant ID"
 }
 
-
-
-
 variable "admin_username" {
   type        = string
   description = "Default Admin username"
@@ -38,15 +35,11 @@ variable "adminPassword" {
 }
 
 variable "sharedResources" {
-  type    = string
-  default = "new"
+  type        = string
+  default     = "new"
   description = "Specify whether to create a new or existing NSG and vNet."
   validation {
-
-      condition = var.sharedResources == "new" || var.sharedResources == "existing"
-      error_message = "Accepts values either \"new\",\"existing\"."
+    condition     = var.sharedResources == "new" || var.sharedResources == "existing"
+    error_message = "Accepts values either \"new\",\"existing\"."
   }
-
 }
-
-
