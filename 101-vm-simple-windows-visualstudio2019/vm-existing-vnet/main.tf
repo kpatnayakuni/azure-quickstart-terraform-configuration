@@ -1,11 +1,4 @@
-# Defining the local variables
-locals {
-  
-  networkInterfaceName = lower(join("", [var.vmName,"-nic"]))
-  subnetAddressRange       = "10.1.1.0/24"
-  publicIPAddressName      = "myPublicIP"
-  
-}
+
 
 data "azurerm_network_security_group" "ansg-01" {
   name = var.networkSecurityGroupName
@@ -20,7 +13,7 @@ resource_group_name = var.resourceGroupName
 
 # Public ip for load balancer
 resource "azurerm_public_ip" "apip-01" {
-  name                = local.publicIPAddressName
+  name                = var.publicIPAddressName
   resource_group_name = var.resourceGroupName
   location            = var.location
   allocation_method   = "Dynamic"
@@ -32,7 +25,7 @@ resource "azurerm_subnet" "as-01" {
   name                 = var.subnetName
   resource_group_name = var.resourceGroupName
   virtual_network_name = data.azurerm_virtual_network.avn-01.name
-  address_prefixes     = [local.subnetAddressRange]
+  address_prefixes     = [var.subnetAddressRange]
 }
 
 # Associate subnet and network security group 
@@ -43,12 +36,13 @@ resource "azurerm_network_interface_security_group_association" "anisga-01" {
 
 # Network interface
 resource "azurerm_network_interface" "anic-01" {
-  name                = local.networkInterfaceName
+  name                = lower(join("", [var.vmName,"-nic"]))
   resource_group_name = var.resourceGroupName
   location            = var.location
   ip_configuration {
     name                          = "ipconfig1"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id            = azurerm_public_ip.apip-01.id
     subnet_id                     = azurerm_subnet.as-01.id
   }
 }

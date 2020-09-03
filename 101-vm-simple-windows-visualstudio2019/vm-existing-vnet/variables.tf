@@ -53,5 +53,12 @@ type =  string
 description = "Name of the Network Security Group"
 }
 
+variable "publicIPAddressName" {
+type = string
+description = "public ip address name of VM"
+}
 
-
+variable "subnetAddressRange" {
+  type = string
+  description = "subnet address range"
+}

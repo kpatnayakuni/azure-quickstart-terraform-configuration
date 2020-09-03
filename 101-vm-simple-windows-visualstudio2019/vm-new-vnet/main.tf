@@ -1,15 +1,3 @@
-# Defining the local variables
-locals {
-  
-  networkInterfaceName = lower(join("", [var.vmName,"-nic"]))
-  addressPrefix =   "10.2.0.0/16"
-
-  subnetAddressRange       = "10.2.1.0/24"
-  publicIPAddressName      = "myPublicIP"
-  
-}
-
-
 
 # Resource Group
 resource "azurerm_resource_group" "arg-01" {
@@ -19,7 +7,7 @@ resource "azurerm_resource_group" "arg-01" {
 
 # Public ip for load balancer
 resource "azurerm_public_ip" "apip-01" {
-  name                = local.publicIPAddressName
+  name                = var.publicIPAddressName
   resource_group_name = azurerm_resource_group.arg-01.name
   location = azurerm_resource_group.arg-01.location
   allocation_method   = "Dynamic"
@@ -45,13 +33,12 @@ resource "azurerm_network_security_group" "ansg-01" {
   }
 }
 
-
 # Virtual Network
 resource "azurerm_virtual_network" "avn-01" {
   name                = var.virtualNetworkName
   resource_group_name = azurerm_resource_group.arg-01.name
   location            = azurerm_resource_group.arg-01.location
-  address_space       = [local.addressPrefix]
+  address_space       = [var.addressPrefix]
 }
 
 # Subnet
@@ -59,7 +46,7 @@ resource "azurerm_subnet" "as-01" {
   name                 = var.subnetName
   resource_group_name = azurerm_resource_group.arg-01.name
   virtual_network_name = azurerm_virtual_network.avn-01.name
-  address_prefixes     = [local.subnetAddressRange]
+  address_prefixes     = [var.subnetAddressRange]
 }
 
 # Associate subnet and network security group 
@@ -70,7 +57,7 @@ resource "azurerm_network_interface_security_group_association" "anisga-01" {
 
 # Network interface
 resource "azurerm_network_interface" "anic-01" {
-  name                = local.networkInterfaceName
+  name                = lower(join("", [var.vmName,"-nic"]))
   resource_group_name = azurerm_resource_group.arg-01.name
   location = azurerm_resource_group.arg-01.location
   ip_configuration {
