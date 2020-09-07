@@ -7,11 +7,7 @@ This is a conversion of ARM template *[101-vm-simple-windows-visualstudio2019](h
 ​
 This configuration deploys a Windows Server Datacenter 2016 VM with Visual Studio 2019 Community Edition, using the latest patched version. This will deploy a Standard_D2_v2 size VM in the resource group location and return the admin user name, and it will deploy the following resources...
 
-​
-![output](resources.PNG)
-​
-> ### Note:
-> If there is already the specified resource group exists then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before the deployment.
+​![output](resources.PNG)
 ​
 ### Syntax
 ```
