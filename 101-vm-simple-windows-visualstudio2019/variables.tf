@@ -31,7 +31,7 @@ variable "admin_username" {
 
 variable "adminPassword" {
   type        = string
-  description = "Password for the Virtual Machine. SSH key is recommended"
+  description = "Password for the Virtual Machine.
 }
 
 variable "sharedResources" {
