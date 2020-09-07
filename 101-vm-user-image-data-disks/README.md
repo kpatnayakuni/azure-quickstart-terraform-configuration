@@ -6,12 +6,9 @@ This is a conversion of ARM template *[101-vm-user-image-data-disks](https://git
 
 > Prerequisite - The VHDs to be used for OS and data disks must be stored as page blob in an Azure Resource Manager storage account.
 
-This configutation allows you to create virtual machines from the specified VHDs for OS and data disks. The disks used for your VM will be based on copies of the VHDs you specify in the configuration parameters. It first creates a managed image using the specified OS and data VHDs. Then, it creates a VM using the managed image. And also deploys a Virtual Network, Public IP addresses and a Network Interface in a user specified resource group, and it will deploy the following resources...
+This configuration allows you to create virtual machines from the specified VHDs for OS and data disks. The disks used for your VM will be based on copies of the VHDs you specify in the configuration parameters. It first creates a managed image using the specified OS and data VHDs. Then, it creates a VM using the managed image. And also deploys a Virtual Network, Public IP addresses and a Network Interface in a user specified resource group, and it will deploy the following resources...
 
 ![output](resources.png)
-
-> ### Note:
-> We are using data resource to fetch the details of existing virtual network and existing subnet and deploying the resources in the existing resurce group.
 
 ### Syntax
 ```
@@ -93,7 +90,6 @@ PS C:\Terraform\101-vm-user-image-data-disks> terraform apply -var="vnet-new-or-
 
 ### Output
 ```
-
 module.AddVMtoexistingVnet[0].data.azurerm_virtual_network.vnet-existing-01: Refreshing state...
 module.AddVMtoexistingVnet[0].data.azurerm_subnet.asn-existing-01: Refreshing state...
 
