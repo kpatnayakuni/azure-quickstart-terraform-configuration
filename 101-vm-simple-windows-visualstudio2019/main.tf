@@ -1,4 +1,3 @@
-
 # Crete vm in existing resources
 module "AddVMtoexistingVnet" {
   count                    = var.sharedResources == "existing" ? 1 : 0
@@ -34,18 +33,4 @@ module "AddVMtNewVnet" {
   subnetAddressRange       = "10.1.2.0/24"
   publicIPAddressName      = "publicip"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
