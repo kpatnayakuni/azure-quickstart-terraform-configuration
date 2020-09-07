@@ -160,6 +160,7 @@ resource "azurerm_virtual_machine_data_disk_attachment" "adattach-01" {
 output "hostname" {
   value = azurerm_public_ip.apip-01.fqdn
 }
+
 output "sshCommand" {
   value = join("", [var.adminUsername, "@", azurerm_public_ip.apip-01.fqdn])
 }
