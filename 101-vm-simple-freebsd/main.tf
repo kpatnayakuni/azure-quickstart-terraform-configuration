@@ -138,14 +138,6 @@ resource "azurerm_linux_virtual_machine" "avm-ssh-01" {
   }
 }
 
-# Output 
-output "hostname" {
-  value = azurerm_public_ip.apip-01.fqdn
-}
-output "sshCommand" {
-  value = join("", [var.adminUsername, "@", azurerm_public_ip.apip-01.fqdn])
-}
-
 # Managed disk
 resource "azurerm_managed_disk" "amd-01" {
   name                 = "datadisk"
@@ -162,4 +154,12 @@ resource "azurerm_virtual_machine_data_disk_attachment" "adattach-01" {
   virtual_machine_id = azurerm_linux_virtual_machine.avm-ssh-01.id
   caching            = "ReadWrite"
   lun                = 0
+}
+
+# Output 
+output "hostname" {
+  value = azurerm_public_ip.apip-01.fqdn
+}
+output "sshCommand" {
+  value = join("", [var.adminUsername, "@", azurerm_public_ip.apip-01.fqdn])
 }
