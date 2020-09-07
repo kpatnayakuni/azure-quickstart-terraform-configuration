@@ -1,4 +1,3 @@
-
 # Resource Group
 resource "azurerm_resource_group" "arg-01" {
   name     = var.resourceGroupName
