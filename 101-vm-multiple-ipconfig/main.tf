@@ -13,8 +13,6 @@ locals {
   vmSize                          = "Standard_DS3_v2"
   networkSecurityGroupName        = "default-NSG"
   osDiskName                      = join("", ["${local.vmName}", "_OsDisk_1_"])
-  provision_vm_agent              = true
-  disable_password_authentication = false
 }
 
 # Resource Group
