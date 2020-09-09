@@ -171,4 +171,3 @@ resource "azurerm_virtual_machine" "avm-02" {
 output "hostname" {
   value = azurerm_public_ip.apip-01.fqdn
 }
-
