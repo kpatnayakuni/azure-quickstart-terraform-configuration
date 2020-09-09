@@ -90,3 +90,4 @@ variable "imageOffer" {
     "7.2"                             = "RHEL"
   }
 }
+
