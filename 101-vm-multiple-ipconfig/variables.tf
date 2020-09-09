@@ -31,36 +31,36 @@ variable "resourceGroupName" {
 }
 
 variable "location" {
-  type = string
-  default = "westus"
+  type        = string
+  default     = "westus"
   description = "Location for all resources."
 }
 
-variable  "adminUsername" {
-  type = string
+variable "adminUsername" {
+  type        = string
   description = "Admin username"
 }
 
 variable "adminPassword" {
-  type = string
+  type        = string
   description = "Admin password"
 }
 
 variable "dnsLabelPrefix" {
-  type = string
+  type        = string
   description = "DNS for PublicIPAddressName1"
 }
 
 variable "dnsLabelPrefix1" {
-  type = string
+  type        = string
   description = "DNS for PublicIPAddressName2"
 }
 
 variable "OSVersion" {
-  type = string
+  type        = string
   description = "The Windows/Linux version for the VM. This will pick a fully patched image of this given Windows/Linux version."
   validation {
-    condition = contains(["2012-Datacenter","2012-R2-Datacenter","2016-Nano-Server","2016-Datacenter-with-Containers","2016-Datacenter","16.04.0-LTS","7.2"], var.OSVersion)
+    condition     = contains(["2012-Datacenter", "2012-R2-Datacenter", "2016-Nano-Server", "2016-Datacenter-with-Containers", "2016-Datacenter", "16.04.0-LTS", "7.2"], var.OSVersion)
     error_message = "The Windows/Linux version for the VM are 2012-Datacenter,2012-R2-Datacenter,2016-Nano-Server,2016-Datacenter-with-Containers,2016-Datacenter,16.04.0-LTS,7.2."
   }
 }
@@ -68,25 +68,25 @@ variable "OSVersion" {
 variable "imagePublisher" {
   type = map
   default = {
-    "2012-Datacenter" = "MicrosoftWindowsServer"
-    "2012-R2-Datacenter" = "MicrosoftWindowsServer"
-    "2016-Nano-Server" = "MicrosoftWindowsServer"
+    "2012-Datacenter"                 = "MicrosoftWindowsServer"
+    "2012-R2-Datacenter"              = "MicrosoftWindowsServer"
+    "2016-Nano-Server"                = "MicrosoftWindowsServer"
     "2016-Datacenter-with-Containers" = "MicrosoftWindowsServer"
-    "2016-Datacenter" = "MicrosoftWindowsServer"
-    "16.04.0-LTS" = "Canonical"
-    "7.2" = "RedHat"
+    "2016-Datacenter"                 = "MicrosoftWindowsServer"
+    "16.04.0-LTS"                     = "Canonical"
+    "7.2"                             = "RedHat"
   }
 }
 
 variable "imageOffer" {
   type = map
   default = {
-    "2012-Datacenter" = "WindowsServer"
-    "2012-R2-Datacenter" = "WindowsServer"
-    "2016-Nano-Server" = "WindowsServer"
+    "2012-Datacenter"                 = "WindowsServer"
+    "2012-R2-Datacenter"              = "WindowsServer"
+    "2016-Nano-Server"                = "WindowsServer"
     "2016-Datacenter-with-Containers" = "WindowsServer"
-    "2016-Datacenter" = "WindowsServer"
-    "16.04.0-LTS" = "UbuntuServer"
-    "7.2" = "RHEL"
+    "2016-Datacenter"                 = "WindowsServer"
+    "16.04.0-LTS"                     = "UbuntuServer"
+    "7.2"                             = "RHEL"
   }
 }
