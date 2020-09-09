@@ -1,4 +1,3 @@
-
 # Fetch details of resource group where shared resources exists
 data "azurerm_resource_group" "arg-01" {
   name = var.resourceGroupName

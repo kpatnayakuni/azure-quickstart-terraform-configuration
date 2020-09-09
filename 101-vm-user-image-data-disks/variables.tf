@@ -31,15 +31,14 @@ variable "admin_username" {
 
 variable "adminPassword" {
   type        = string
-  description = "Password for the Virtual Machine.
+  description = "Password for the Virtual Machine. SSH key is recommended"
 }
 
-variable "sharedResources" {
+variable "vnet-new-or-existing" {
   type        = string
-  default     = "new"
-  description = "Specify whether to create a new or existing NSG and vNet."
+  description = "Select if this template needs a new VNet or will reference an existing VNet."
   validation {
-    condition     = var.sharedResources == "new" || var.sharedResources == "existing"
+    condition     = var.vnet-new-or-existing == "new" || var.vnet-new-or-existing == "existing"
     error_message = "Accepts values either \"new\",\"existing\"."
   }
 }
