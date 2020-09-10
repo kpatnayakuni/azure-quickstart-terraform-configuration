@@ -63,3 +63,18 @@ variable "vmSize" {
   default     = "Standard_D2_v3"
   description = "Size of the virtual machine."
 }
+
+variable "Azkeyvault-rg" {
+  type        = string
+  description = "Resource group of azure keyvault"
+}
+
+variable "AzkeyvaultName" {
+  type        = string
+  description = "Azure keyvault name"
+}
+
+variable "AzSecretename" {
+  type        = string
+  description = "Name of the Azure keyvault secret name"
+}

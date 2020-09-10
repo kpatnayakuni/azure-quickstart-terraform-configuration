@@ -14,7 +14,7 @@ locals {
   vmName                        = "SimpleWinVM"
   virtualNetworkName            = "MyVNET"
   networkSecurityGroupName      = join("", ["subnetName", "-nsg"])
-  }
+}
 
 # Generate random string for Storage account
 resource "random_string" "asaname-01" {
@@ -24,13 +24,13 @@ resource "random_string" "asaname-01" {
 
 # Fetch key vault  
 data "azurerm_key_vault" "akv-01" {
-  name                = "tfkeyvaultdemo" #Exiting keyvault name
-  resource_group_name = "demo-rg"        #Resource group name of keyValut
+  name                = var.AzkeyvaultName
+  resource_group_name = var.Azkeyvault-rg
 }
 
 #Fetch value of secret "adminpassword"
 data "azurerm_key_vault_secret" "akvs-01" {
-  name         = "adminpassword"
+  name         = var.AzSecretename
   key_vault_id = data.azurerm_key_vault.akv-01.id
 }
 
