@@ -1,5 +1,5 @@
 # Terraform: 101-vm-secure-password
-## Very simple deployment of a Windo
+## Very simple deployment of a Windows VM
 ## Description
 
 This is a conversion of ARM template *[101-vm-secure-password](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-secure-password/)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
