@@ -76,6 +76,7 @@ variable "imagePublisher" {
     "16.04.0-LTS"                     = "Canonical"
     "7.2"                             = "RedHat"
   }
+  description = "The Windows/Linux image publisher for the selected VM."
 }
 
 variable "imageOffer" {
@@ -89,4 +90,5 @@ variable "imageOffer" {
     "16.04.0-LTS"                     = "UbuntuServer"
     "7.2"                             = "RHEL"
   }
+  description = "The Windows/Linux image for the selected VM."
 }
