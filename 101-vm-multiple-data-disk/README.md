@@ -29,12 +29,18 @@ PS C:\Terraform\101-vm-multiple-data-disk> terraform apply
 PS C:\Terraform\101-vm-multiple-data-disk> terraform init 
 
 # Plan
-PS C:\Terraform\101-vm-multiple-data-disk> terraform plan -var="adminUsername=cloudguy" -var="adminPassword=Abcd@1234"
+PS C:\Terraform\101-vm-multiple-data-disk> terraform plan -var="adminUsername=cloudguy"
+var.adminPassword
+Password for the Virtual Machine.
+Enter a value: *********
 
 <--- output truncated --->
 
 # Apply
-PS C:\Terraform\101-vm-multiple-data-disk> terraform apply -var="adminUsername=cloudguy" -var="adminPassword=Abcd@1234"
+PS C:\Terraform\101-vm-multiple-data-disk> terraform apply -var="adminUsername=cloudguy" 
+var.adminPassword
+Password for the Virtual Machine.
+Enter a value: *********
 
 ```
 
