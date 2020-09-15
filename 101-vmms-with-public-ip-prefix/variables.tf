@@ -50,11 +50,12 @@ variable "vmssName" {
 }
 
 variable "instanceCount" {
-  type        = string
-  default     = 5
+  # type        = Num
+  default     = 3
   description = "Number of VM instances (100 or less)"
   validation {
-    condition     = (min(var.instanceCount) >= 1 && max(var.instanceCount) <= 100)
+     condition     = var.instanceCount >= 1 ||  var.instanceCount <= 100
+    # condition = 
     error_message = "Number of VM instances (100 or less)."
   }
 }
@@ -66,12 +67,13 @@ variable "adminUsername" {
 }
 
 variable "publicIPPrefixLength" {
-  type        = string
-  default     = 28
+  # type        = Num
+  default     = 30
   description = "Length of public IP prefix."
   validation {
-    condition     = (min(var.publicIPPrefixLength) >= 28 && max(var.publicIPPrefixLength) <= 31)
-    error_message = "Max Length of public IP prefix is 31 and min Length is 28."
+    # condition     = range(30, 31) == var.publicIPPrefixLength
+    condition =  var.publicIPPrefixLength >=30 ||  var.publicIPPrefixLength == 31
+    error_message = "Max Length of public IP prefix is 31 and min Length is 30."
   }
 }
 

@@ -14,13 +14,13 @@ locals {
   natBackendPort      = 22
   nicName             = join("", [var.vmssName, "nic"])
   ipConfigName        = join("", [var.vmssName, "ipconfig"])
-  osType = {
+  /* osType = {
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = "16.04-LTS"
     version   = "latest"
   }
-  imageReference = local.osType
+  imageReference = local.osType */
   ssh_key = {
     username   = var.adminUsername
     public_key = file("~/.ssh/id_rsa.pub")
@@ -86,14 +86,15 @@ resource "azurerm_lb_backend_address_pool" "abp-01" {
   loadbalancer_id     = azurerm_lb.alb-01.id
 }
 
-resource "azurerm_lb_nat_rule" "anat-01" {
+resource "azurerm_lb_nat_pool" "anat-01" {
   resource_group_name            = azurerm_resource_group.arg-01.name
   loadbalancer_id                = azurerm_lb.alb-01.id
   name                           = local.natPoolName
   protocol                       = "Tcp"
-  frontend_port                  = local.natStartPort
-  backend_port                   = local.natEndPort
-  frontend_ip_configuration_name = azurerm_lb.alb-01.name
+  frontend_port_start                  = local.natStartPort
+  frontend_port_end                   = local.natEndPort
+  backend_port = local.natBackendPort
+  frontend_ip_configuration_name = "LoadBalancerFrontEnd"
 }
 
 resource "azurerm_linux_virtual_machine_scale_set" "avmss-01" {
@@ -109,13 +110,14 @@ resource "azurerm_linux_virtual_machine_scale_set" "avmss-01" {
     storage_account_type = "Standard_LRS"
     caching              = "ReadOnly"
   }
-  source_image_reference {
+
+   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = "16.04-LTS"
     version   = "latest"
 
-  }
+  } 
   admin_username                  = var.adminUsername
   admin_password                  = var.authenticationType == "sshPublicKey" ? null : var.adminPasswordOrKey
   disable_password_authentication = var.authenticationType == "sshPublicKey" ? true : false
@@ -134,7 +136,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "avmss-01" {
       name                                   = "ipConfigName"
       primary                                = true
       subnet_id                              = azurerm_subnet.as-01.id
-      load_balancer_inbound_nat_rules_ids    = [azurerm_lb_nat_rule.anat-01.id]
+      #  load_balancer_inbound_nat_rules_ids    = [azurerm_lb.alb-01.frontend_ip_configuration.inbound_nat_rules()]
+      load_balancer_inbound_nat_rules_ids    = [azurerm_lb_nat_pool.anat-01.id]
       load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.abp-01.id]
 
       public_ip_address {
