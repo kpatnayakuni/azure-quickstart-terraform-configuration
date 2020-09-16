@@ -44,7 +44,6 @@ variable "vmName" {
 
 variable "adminUsername" {
   type        = string
-  default     = "demouser"
   description = "Username for the Virtual Machine."
 }
 
@@ -60,10 +59,8 @@ variable "authenticationType" {
 
 variable "adminPasswordOrKey" {
   type        = string
-  default     = "Abcd@123"
   description = "SSH Key or password for the Virtual Machine. SSH key is recommended."
 }
-
 
 variable "ubuntuOSVersion" {
   type        = string
@@ -77,7 +74,7 @@ variable "ubuntuOSVersion" {
 
 variable "VmSize" {
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_A2_V2"
   description = "The size of the VM"
 }
 

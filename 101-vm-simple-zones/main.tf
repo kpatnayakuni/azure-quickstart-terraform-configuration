@@ -1,4 +1,3 @@
-
 # Defining the local variables
 locals {
   publicIpAddressName  = join("", [var.vmName, "PublicIP"])
@@ -7,7 +6,6 @@ locals {
   subnetAddressPrefix  = "10.1.0.0/24"
   addressPrefix        = "10.1.0.0/16"
   dnsLabelPrefix       = lower(join("", ["linuxvm-", random_string.vmd.result]))
-
   ssh_key = {
     username   = var.adminUsername
     public_key = file("~/.ssh/id_rsa.pub")
@@ -63,7 +61,7 @@ resource "azurerm_subnet" "as-01" {
 }
 
 # Associate subnet and Network interface
-resource "azurerm_network_interface_security_group_association" "asnsga-0" {
+resource "azurerm_network_interface_security_group_association" "asnsga-01" {
   network_interface_id      = azurerm_network_interface.anic-01.id
   network_security_group_id = azurerm_network_security_group.ansg-01.id
 }
