@@ -55,7 +55,6 @@ variable "vmSize" {
 variable "adminPassword" {
   type        = string
   description = "Password for the Virtual Machine. SSH key is recommended"
-
 }
 
 variable "authenticationType" {

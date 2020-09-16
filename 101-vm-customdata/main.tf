@@ -21,7 +21,6 @@ locals {
   networkSecurityGroupName = "default-NSG"
 }
 
-
 # Generate random string for storage
 resource "random_string" "asa" {
   length  = 8
