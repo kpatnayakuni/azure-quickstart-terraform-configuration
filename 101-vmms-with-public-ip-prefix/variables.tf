@@ -43,36 +43,33 @@ variable "vmSku" {
 }
 
 variable "vmssName" {
-  type    = string
-  default = "demoset"
-  # max_length = 9
+  type        = string
   description = "String used as a base for naming resources (9 characters or less). A hash is prepended to this string for some resources, and resource-specific information is appended."
+  validation {
+    condition     = length(var.vmssName) <= 9
+    error_message = "String used as a base for naming resources (9 characters or less)."
+  }
 }
 
 variable "instanceCount" {
-  # type        = Num
   default     = 3
   description = "Number of VM instances (100 or less)"
   validation {
-     condition     = var.instanceCount >= 1 ||  var.instanceCount <= 100
-    # condition = 
+    condition     = var.instanceCount >= 1 || var.instanceCount <= 100
     error_message = "Number of VM instances (100 or less)."
   }
 }
 
 variable "adminUsername" {
   type        = string
-  default     = "demouser"
   description = "Admin username on all VMs"
 }
 
 variable "publicIPPrefixLength" {
-  # type        = Num
   default     = 30
   description = "Length of public IP prefix."
   validation {
-    # condition     = range(30, 31) == var.publicIPPrefixLength
-    condition =  var.publicIPPrefixLength >=30 ||  var.publicIPPrefixLength == 31
+    condition     = var.publicIPPrefixLength == 30 || var.publicIPPrefixLength == 31
     error_message = "Max Length of public IP prefix is 31 and min Length is 30."
   }
 }
@@ -89,6 +86,5 @@ variable "authenticationType" {
 
 variable "adminPasswordOrKey" {
   type        = string
-  default     = "Abcd@123"
   description = "SSH Key or password for the Virtual Machine. SSH key is recommended."
 }

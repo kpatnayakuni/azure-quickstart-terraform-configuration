@@ -1,3 +1,4 @@
+# Defining local variables
 locals {
   addressPrefix       = "10.0.0.0/16"
   subnetPrefix        = "10.0.0.0/24"
@@ -14,19 +15,13 @@ locals {
   natBackendPort      = 22
   nicName             = join("", [var.vmssName, "nic"])
   ipConfigName        = join("", [var.vmssName, "ipconfig"])
-  /* osType = {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "16.04-LTS"
-    version   = "latest"
-  }
-  imageReference = local.osType */
   ssh_key = {
     username   = var.adminUsername
     public_key = file("~/.ssh/id_rsa.pub")
   }
 }
 
+# Resource Group
 resource "azurerm_resource_group" "arg-01" {
   name     = var.resourceGroupName
   location = var.location
@@ -38,7 +33,6 @@ resource "azurerm_public_ip_prefix" "apip-prefix-01" {
   resource_group_name = azurerm_resource_group.arg-01.name
   sku                 = "Standard"
   prefix_length       = var.publicIPPrefixLength
-  # public_ip_address_version= "IPv4"
 }
 
 # Virtual Network
@@ -86,38 +80,37 @@ resource "azurerm_lb_backend_address_pool" "abp-01" {
   loadbalancer_id     = azurerm_lb.alb-01.id
 }
 
+# Nat Pool
 resource "azurerm_lb_nat_pool" "anat-01" {
   resource_group_name            = azurerm_resource_group.arg-01.name
   loadbalancer_id                = azurerm_lb.alb-01.id
   name                           = local.natPoolName
   protocol                       = "Tcp"
-  frontend_port_start                  = local.natStartPort
-  frontend_port_end                   = local.natEndPort
-  backend_port = local.natBackendPort
+  frontend_port_start            = local.natStartPort
+  frontend_port_end              = local.natEndPort
+  backend_port                   = local.natBackendPort
   frontend_ip_configuration_name = "LoadBalancerFrontEnd"
 }
 
+# Virtual Machine scale set
 resource "azurerm_linux_virtual_machine_scale_set" "avmss-01" {
   name                = var.vmssName
   location            = azurerm_resource_group.arg-01.location
   resource_group_name = azurerm_resource_group.arg-01.name
   sku                 = var.vmSku
-  # tier = "Standard"
-  instances     = var.instanceCount
-  upgrade_mode  = "Manual"
-  overprovision = false
+  instances           = var.instanceCount
+  upgrade_mode        = "Manual"
+  overprovision       = false
   os_disk {
     storage_account_type = "Standard_LRS"
     caching              = "ReadOnly"
   }
-
-   source_image_reference {
+  source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = "16.04-LTS"
     version   = "latest"
-
-  } 
+  }
   admin_username                  = var.adminUsername
   admin_password                  = var.authenticationType == "sshPublicKey" ? null : var.adminPasswordOrKey
   disable_password_authentication = var.authenticationType == "sshPublicKey" ? true : false
@@ -131,15 +124,12 @@ resource "azurerm_linux_virtual_machine_scale_set" "avmss-01" {
   network_interface {
     name    = local.nicName
     primary = true
-
     ip_configuration {
       name                                   = "ipConfigName"
       primary                                = true
       subnet_id                              = azurerm_subnet.as-01.id
-      #  load_balancer_inbound_nat_rules_ids    = [azurerm_lb.alb-01.frontend_ip_configuration.inbound_nat_rules()]
       load_balancer_inbound_nat_rules_ids    = [azurerm_lb_nat_pool.anat-01.id]
       load_balancer_backend_address_pool_ids = [azurerm_lb_backend_address_pool.abp-01.id]
-
       public_ip_address {
         name                    = "pub1"
         idle_timeout_in_minutes = 15
