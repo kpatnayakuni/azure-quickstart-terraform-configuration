@@ -38,13 +38,11 @@ variable "location" {
 
 variable "projectName" {
   type        = string
-  default     = "demoproject"
   description = "Specifies a name for generating resource names."
 }
 
 variable "adminUsername" {
   type        = string
-  default     = "demouser"
   description = "Specifies a username for the Virtual Machine."
 }
 
