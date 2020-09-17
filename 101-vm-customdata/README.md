@@ -5,7 +5,7 @@ This is a conversion of ARM template *[101-vm-customdata](https://github.com/Azu
 
 This configuration allows you to create a Virtual Machine with Custom Data. This template also deploys a Storage Account, Virtual Network, Public IP addresses and a Network Interface, and it will deploy the following resources...
 
-![output](resources.png)
+![output](resources.PNG)
 
 You can verify the Custom Data in the file /var/lib/cloud/instance/user-data.txt
 
