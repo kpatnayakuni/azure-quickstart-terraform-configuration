@@ -1,7 +1,7 @@
 # Terraform: 101-vm-simple-zones
 ## Very simple deployment of a VM in an Availability Zone
 ## Description 
-This is a conversion of ARM template *[101-vm-simple-zones](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-zones)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+This is an Azure quickstart sample terraform configuration based on ARM template *[101-vm-simple-zones](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-zones)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*.
 
 This configurations allows you to deploy a simple VM (Windows or Ubuntu), using the latest patched version. This will deploy an A2_v2 size VM in the location specified and return the FQDN of the VM, and it will deploy the following resources...
 

@@ -2,7 +2,7 @@
 ## VMSS with Public IP Prefix
 ## Description 
 
-This is a conversion of ARM template *[101-vmms-with-public-ip-prefix](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vmms-with-public-ip-prefix)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+This is an Azure quickstart sample terraform configuration based on ARM template *[101-vmms-with-public-ip-prefix](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vmms-with-public-ip-prefix)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*.
 
 This configuration deploys a Virtual Machine Scale Set with Public IP Prefix, and it will deploy the following resources...
 
