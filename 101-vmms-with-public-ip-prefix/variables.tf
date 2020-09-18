@@ -55,7 +55,7 @@ variable "instanceCount" {
   default     = 4
   description = "Number of VM instances (100 or less)"
   validation {
-    condition = var.instanceCount <=100
+    condition     = var.instanceCount <= 100
     error_message = "Number of VM instances (100 or less)."
   }
 }
@@ -69,7 +69,7 @@ variable "publicIPPrefixLength" {
   default     = 30
   description = "Length of public IP prefix."
   validation {
-    condition = contains(range(28,31+1),var.publicIPPrefixLength)
+    condition     = contains(range(28, 31 + 1), var.publicIPPrefixLength)
     error_message = "Max Length of public IP prefix is 31 and min Length is 30."
   }
 }
