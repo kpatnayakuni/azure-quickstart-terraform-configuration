@@ -3,7 +3,8 @@
 ## Simple Linux VM created with serial/console output configured 
 
 ## Description
-This is a conversion of ARM template *[101-vm-linux-serial-output](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-linux-serial-output)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+This is an Azure quickstart sample terraform configuration 
+based on ARM template *[101-vm-linux-serial-output](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-linux-serial-output)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)*.
 
 This is a simple configuration that will create a single VM with very limited parameters in order to demonstrate how to configure serial and console output, and it will deploy the following resources...
 
