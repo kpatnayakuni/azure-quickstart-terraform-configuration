@@ -3,7 +3,7 @@
 ## Very simple deployment of a Linux VM with Accelerated Networking
 
 ## Description
-This is an Azure quickstart sample terraform configuration based on ARM template *[101-vm-simple-linux-with-accelerated-networking](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux-with-accelerated-networking)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)* to Terraform configuration.
+This is an Azure quickstart sample terraform configuration based on ARM template *[101-vm-simple-linux-with-accelerated-networking](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux-with-accelerated-networking)* from the repository *[azure\azure-quickstart-templates](https://https://github.com/Azure/azure-quickstart-templates)*.
 
 This configuration allows you to deploy a simple Linux VM with Accelerated Networking using Ubuntu version 16.04.0-LTS with the latest patched version. This will deploy a D3_v2 size VM in the resource group location and return the FQDN of the VM, and it will deploy the following resources...
 

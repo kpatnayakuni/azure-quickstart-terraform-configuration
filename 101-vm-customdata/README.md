@@ -7,7 +7,6 @@ This configuration allows you to create a Virtual Machine with Custom Data. This
 
 ![output](resources.PNG)
 
-
 > ### Note:
 > If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
 
@@ -57,10 +56,10 @@ azurerm_linux_virtual_machine.avm-ssh-01: Creation complete after 1m39s
 
 Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
 ```
-### Note
-```
->You can verify the Custom Data in the file /var/lib/cloud/instance/user-data.txt.
-```
+
+> ### Note
+> You can verify the Custom Data in the file /var/lib/cloud/instance/user-data.txt.
+
 > Azure Cloud Shell comes with Azure PowerShell pre-installed and you can deploy the above resources using Cloud Shell as well.
 >
 >[![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
