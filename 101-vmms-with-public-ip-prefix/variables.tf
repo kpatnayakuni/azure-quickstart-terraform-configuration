@@ -52,7 +52,7 @@ variable "vmssName" {
 }
 
 variable "instanceCount" {
-  default     = 2
+  default     = 4
   description = "Number of VM instances (100 or less)"
   validation {
     condition = contains(range(1,99+1),var.instanceCount)
@@ -66,7 +66,7 @@ variable "adminUsername" {
 }
 
 variable "publicIPPrefixLength" {
-  default     = 31
+  default     = 30
   description = "Length of public IP prefix."
   validation {
     condition = contains(range(28,31+1),var.publicIPPrefixLength)
