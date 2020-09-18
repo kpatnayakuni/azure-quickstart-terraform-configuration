@@ -58,7 +58,7 @@ Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
 ```
 
 > ### Note
-> You can verify the Custom Data in the file /var/lib/cloud/instance/user-data.txt.
+> You can verify the Custom Data in the file /var/lib/cloud/instance/user-data.txt
 
 > Azure Cloud Shell comes with Azure PowerShell pre-installed and you can deploy the above resources using Cloud Shell as well.
 >
