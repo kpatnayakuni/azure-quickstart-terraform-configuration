@@ -55,7 +55,7 @@ variable "instanceCount" {
   default     = 4
   description = "Number of VM instances (100 or less)"
   validation {
-    condition = contains(range(1,99+1),var.instanceCount)
+    condition = var.instanceCount <=100
     error_message = "Number of VM instances (100 or less)."
   }
 }
