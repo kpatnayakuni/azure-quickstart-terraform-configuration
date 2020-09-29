@@ -199,12 +199,3 @@ resource "azurerm_virtual_machine_extension" "avm-ext-01" {
   { }
   PROTECTED_SETTINGS
 }
-
-#Output 
-output "existingVirtualMachineName" {
-  value = local.vmName
-}
-
-output "sqlAutobackupStorageAccountName" {
-  value = local.storageAccountName2
-}
