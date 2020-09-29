@@ -97,7 +97,7 @@ resource "azurerm_network_interface" "anic-01" {
 }
 
 # Virtual Machine
-resource "azurerm_virtual_machine" "avm-01" {
+resource "azurerm_windows_virtual_machine" "avm-01" {
   name                  = local.vmName
   resource_group_name   = azurerm_resource_group.arg-01.name
   location              = azurerm_resource_group.arg-01.location
@@ -185,13 +185,4 @@ resource "azurerm_virtual_machine_extension" "avm-ext-01" {
   protected_settings  = <<PROTECTED_SETTINGS
   { }
   PROTECTED_SETTINGS
-}
-
-#Output 
-output "existingVirtualMachineName" {
-  value = local.vmName
-}
-
-output "sqlAutobackupStorageAccountName" {
-  value = local.storageAccountName2
 }
