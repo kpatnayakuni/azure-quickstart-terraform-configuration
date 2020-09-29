@@ -115,8 +115,8 @@ resource "azurerm_network_interface" "anic-01" {
   }
 }
 
-# Create VM if authentication type is SSH
-resource "azurerm_virtual_machine" "avm-ssh-01" {
+# Create VM 
+resource "azurerm_linux_virtual_machine" "avm-ssh-01" {
   name                  = var.vmName
   resource_group_name   = azurerm_resource_group.arg-01.name
   location              = azurerm_resource_group.arg-01.location
