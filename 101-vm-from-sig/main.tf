@@ -9,6 +9,7 @@ locals {
   subnetPrefix             = "10.0.0.0/24"
   networkSecurityGroupName = join("", [local.subnetName, "-nsg"])
 }
+
 # Resource Group
 resource "azurerm_resource_group" "arg-01" {
   name     = var.resourceGroupName
