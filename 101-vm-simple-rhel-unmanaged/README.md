@@ -5,7 +5,7 @@ This is an Azure quickstart sample terraform configuration based on ARM template
 
 This configuration allows deploying a Red Hat Enterprise Linux VM (RHEL 7.2 or RHEL 6.7) unmanaged disks, using the latest image for the selected RHEL version. This will deploy a Standard_DS2_v2 VM in the location of your chosen resource group with two additional 100 GiB data disks attached to the VM, and it will deploy the following resources...
 
-![output](resources.png)
+![output](resources.PNG)
 
 > ### Note:
 > If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
