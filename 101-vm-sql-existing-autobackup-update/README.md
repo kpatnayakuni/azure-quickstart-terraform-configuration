@@ -10,6 +10,8 @@ The Automated Backup feature can be used to configure an automated backup schedu
 
 This configuration can be used to enable or change the configuration of Automated backup. Please ensure you have already deployed the prerequisite *[preq](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update/prereqs)*
 
+If you wish to disable Automated Backup, you must edit main.tf and change "Enable" to be false.
+
 > ### Note:
 >Before deploying this configuration, import the existing azure vm extension into the terraform state file to manage that resource by terraform.
 > ex: terraform import azurerm_virtual_machine_extension.azex-01 < resource id >
@@ -28,7 +30,7 @@ PS C:\Terraform\101-vm-sql-existing-autobackup-update> terraform apply
 ### Example
 ```
 # Initialize
-PS C:\Terraform\101-vm-sql-existing-autobackup-update terraform init 
+PS C:\Terraform\101-vm-sql-existing-autobackup-update> terraform init 
 
 # Plan
 PS C:\Terraform\101-vm-sql-existing-autobackup-update> terraform plan -var="existingVirtualMachineName=ExistingWinvm" -var="resourceGroupName=demo-rg" -var="sqlAutobackupStorageAccountName=cpr3bxp5yb6umstorage1"
