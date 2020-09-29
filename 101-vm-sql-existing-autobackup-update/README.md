@@ -4,12 +4,15 @@
 
 This is an Azure quickstart sample terraform configuration based on ARM template *[101-vm-sql-existing-autobackup-update](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*.
 
-This configuration can be used for any Azure virtual machine running SQL Server 2014 Enterprise or Standard Edition.The Automated Backup feature can be used to configure an automated backup schedule for SQL databases on an Azure virtual machine running SQL Server.Automated Backup is supported in your virtual machine through the SQL Server IaaS Agent extension. This extension must be installed on the VM to be able to use this feature. When you enable Automated Backup on your virtual machine, the extension will be automatically installed. This extension will also report back the latest status of this feature to you and it will deploy the following resources...
+This configuration can be used for any Azure virtual machine running SQL Server 2014 Enterprise or Standard Edition.
 
-![output](resources.png)
+The Automated Backup feature can be used to configure an automated backup schedule for SQL databases on an Azure virtual machine running SQL Server.Automated Backup is supported in your virtual machine through the SQL Server IaaS Agent extension. 
+
+This configuration can be used to enable or change the configuration of Automated backup. Please ensure you have already deployed the prerequisite *[preq](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update/prereqs)*
 
 > ### Note:
-> We are using data resource to fetch the details of existing virtual machine, storage to deploy the SQL Server IaaS Agent extension to that existing virtual machine. 
+>Before deploying this configuration, import the existing azure vm extension into the terraform state file to manage that resource by terraform.
+> ex: terraform import azurerm_virtual_machine_extension.azex-01 < resource id >
 
 ### Syntax
 ```
