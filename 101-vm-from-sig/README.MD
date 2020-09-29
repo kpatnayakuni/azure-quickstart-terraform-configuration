@@ -1,6 +1,9 @@
 # Terraform: 101-vm-from-sig
+
 ## Create Virtual Machine from a Shared Image Gallery
+
 ## Description 
+
 This is an Azure quickstart sample terraform configuration based on ARM template *[101-vm-from-sig](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-sig)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*.
 
 This configuration creates a Virtual Machine from an Image Version in a Shared Image Gallery. Please ensure you have already deployed the 101 templates to create Shared Image Gallery, Image Definition, and Image Version, and it will deploy the following resources..

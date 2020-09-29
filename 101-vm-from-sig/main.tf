@@ -139,8 +139,3 @@ resource "azurerm_windows_virtual_machine" "avm-01" {
     storage_account_type = "Standard_LRS"
   }
 }
-
-# Hostname 
-output "hostname" {
-  value = azurerm_public_ip.apip-01.fqdn
-}
