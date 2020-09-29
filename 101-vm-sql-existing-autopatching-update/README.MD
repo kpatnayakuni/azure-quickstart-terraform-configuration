@@ -5,14 +5,16 @@ This is an Azure quickstart sample terraform configuration based on ARM template
 
 This configuration can be used for any Azure virtual machine, whether it is running SQL Server or not. If your virtual machine is running SQL Server, it must be SQL Server 2012 or newer.
 
-The Automated Patching feature can be used to schedule a patching window during which all Windows and SQL Server updates will take place. More information on this feature can be found here.
+The Automated Patching feature can be used to schedule a patching window during which all Windows and SQL Server updates will take place.
 
 This configuration can be used to enable or change the configuration of Automated Patching. Please ensure you have already deployed the prerequisite *[preq](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update/prereqs)*
+
+If you wish to disable Automated Patching, you must edit main.tf and change "Enable" to be false.
 
 
 > ### Note:
 > Before deploying this configuration, import the existing azure vm extension into the terraform state file to manage that resource by terraform.
-> ex: terraform import azurerm_virtual_machine_extension.azex-01 <resource id>
+> ex: terraform import azurerm_virtual_machine_extension.azex-01 < resource id >
 
 ### Syntax
 ```
