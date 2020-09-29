@@ -7,7 +7,7 @@ This configuration can be used for any Azure virtual machine, whether it is runn
 
 The Automated Patching feature can be used to schedule a patching window during which all Windows and SQL Server updates will take place.
 
-This configuration can be used to enable or change the configuration of Automated Patching. Please ensure you have already deployed the prerequisite *[preq](/preq)*
+This configuration can be used to enable or change the configuration of Automated Patching. Please ensure you have already deployed the prerequisite *[preq](./preq)*
 
 If you wish to disable Automated Patching, then you can edit main.tf and set "Enable" to false.
 
