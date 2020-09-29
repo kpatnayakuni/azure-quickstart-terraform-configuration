@@ -8,7 +8,7 @@ This is an Azure quickstart sample terraform configuration based on ARM template
 
 This configuration creates a Virtual Machine from an Image Version in a Shared Image Gallery. Please ensure you have already deployed the 101 templates to create Shared Image Gallery, Image Definition, and Image Version, and it will deploy the following resources..
 
-![output](resources.png)
+![output](resources.PNG)
 
 > ### Note:
 > If the specified resource group is already exist then the script will not continue with the deployment. If you want to deploy the resources to the existing resource group, then import the resource group to state before deployment.
