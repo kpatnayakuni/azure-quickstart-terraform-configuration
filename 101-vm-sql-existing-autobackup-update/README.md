@@ -8,9 +8,9 @@ This configuration can be used for any Azure virtual machine running SQL Server 
 
 The Automated Backup feature can be used to configure an automated backup schedule for SQL databases on an Azure virtual machine running SQL Server.Automated Backup is supported in your virtual machine through the SQL Server IaaS Agent extension. 
 
-This configuration can be used to enable or change the configuration of Automated backup. Please ensure you have already deployed the prerequisite *[preq](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update/prereqs)*
+This configuration can be used to enable or change the configuration of Automated backup. Please ensure you have already deployed the prerequisite *[preq](./prerequisite)*
 
-If you wish to disable Automated Backup, you must edit main.tf and change "Enable" to be false.
+If you wish to disable Automated Backup, then you can edit main.tf and set "Enable" to false.
 
 > ### Note:
 > Before deploying this configuration, import the existing azure vm extension into the terraform state file to manage that resource by terraform.
