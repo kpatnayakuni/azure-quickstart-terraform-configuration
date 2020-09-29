@@ -13,7 +13,7 @@ This configuration can be used to enable or change the configuration of Automate
 If you wish to disable Automated Backup, you must edit main.tf and change "Enable" to be false.
 
 > ### Note:
->Before deploying this configuration, import the existing azure vm extension into the terraform state file to manage that resource by terraform.
+> Before deploying this configuration, import the existing azure vm extension into the terraform state file to manage that resource by terraform.
 > ex: terraform import azurerm_virtual_machine_extension.azex-01 < resource id >
 
 ### Syntax
