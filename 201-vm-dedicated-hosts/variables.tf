@@ -38,7 +38,7 @@ variable "location" {
 
 variable "numberOfZoness" {
   type        = string
-  default     = 2
+  default     = 0
   description = "How many Zone to use. Use 0 for non zonal deployment."
 }
 

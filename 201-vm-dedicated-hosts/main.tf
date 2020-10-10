@@ -22,12 +22,9 @@ resource "azurerm_dedicated_host_group" "HostGroups" {
 # Dedicated host
 resource "azurerm_dedicated_host" "host" {
   count                   = local.numberOfHosts
-  name                    = join("",[var.dhgNamePrefix,floor(count.index/var.numberofHostsPerZone),"/",var.dhNamePrefix,floor(count.index/var.numberofHostsPerZone),count.index % var.numberOfFDs])
-  # name = join("" ,[var.dhgNamePrefix-${count.index}/var.numberofHostsPerZone,"/",var.dhNamePrefix,${count.index}/var.numberofHostsPerZone,${count.index} % var.numberofHostsPerZone]-${count.index})
+  name                    = join("",[var.dhgNamePrefix,floor(count.index/var.numberofHostsPerZone),"-",var.dhNamePrefix,floor(count.index/var.numberofHostsPerZone),count.index % var.numberOfFDs])
   location                = azurerm_resource_group.arg-01.location
   dedicated_host_group_id = element(azurerm_dedicated_host_group.HostGroups.*.id, floor(count.index / var.numberofHostsPerZone))
   sku_name                = var.dhSKU
   platform_fault_domain   = count.index % var.numberOfFDs
 }
-
-
