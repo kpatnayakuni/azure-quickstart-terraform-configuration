@@ -28,3 +28,8 @@ resource "azurerm_dedicated_host" "host" {
   sku_name                = var.dhSKU
   platform_fault_domain   = count.index % var.numberOfFDs
 }
+
+# Output 
+output "hostCount" {
+  value = local.numberOfHosts
+}
