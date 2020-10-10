@@ -4,11 +4,11 @@
 
 This is an Azure quickstart sample terraform configuration based on ARM template *[201-vm-different-rg-vnet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-different-rg-vnet)* from the repository *[azure\azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)*.
 
-This configuration creates a VM in a VNET which is in a different Resource Group. Please ensure you have already deployed the prerequisite *[preq](./prerequisite)* and pass the VNET name and its resource group name as input to this parameter. It will deploy the following resources..
+This configuration creates a VM in a VNET which is in a different Resource Group. Please ensure you have already deployed the prerequisite *[preq](https://github.com/kpatnayakuni/azure-quickstart-terraform-configuration/tree/master/201-vm-different-rg-vnet/preq)* and pass the VNET name and its resource group name as input to this parameter. It will deploy the following resources..
 
 ![output](resources.png)
 
-> Note:
+> ### Note:
 > We are using data resource to fetch the details of existing virtual network, subnet and resource group.
 
 ### Syntax

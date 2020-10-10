@@ -6,7 +6,7 @@ This is an Azure quickstart sample terraform configuration based on ARM template
 
 This configuration provisions a dedicated environment using Azure Dedicated Hosts. You provide the number of zones, how many hosts in each zone and the rest is taken care of by the configuration.
 
-> Note:
+> ### Note:
 >This is the infrastructure only, no VMs or other resources will be provisioned.
 
 ### Syntax
