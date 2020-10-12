@@ -55,6 +55,6 @@ variable "storage_account_type" {
 
 variable "location" {
 	type = string
-	default = "westus"
+	default = "Australia East"
 	description = "Enter the location for all resources."
 }
